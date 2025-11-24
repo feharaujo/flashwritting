@@ -7,7 +7,7 @@
   let correctCount = 0
   let showResult = ''
   let completed = false
-  type ResultItem = { question: string; user: string; correct: string; isCorrect: boolean }
+  type ResultItem = { question: string; user: string; correct: string; isCorrect: boolean; index: number }
   let results: ResultItem[] = []
 
   function shuffle(n: number) {
@@ -39,7 +39,8 @@
         question: card.question,
         user: input.trim(),
         correct: card.answer,
-        isCorrect: ok
+        isCorrect: ok,
+        index: order[current]
       }
     ]
     if (ok) {
@@ -63,6 +64,18 @@
 
   function reset() {
     order = shuffle(data.cards.length)
+    current = 0
+    input = ''
+    correctCount = 0
+    showResult = ''
+    completed = false
+    results = []
+  }
+
+  function retryWrong() {
+    const wrong = results.filter((r) => !r.isCorrect).map((r) => r.index)
+    if (wrong.length === 0) return
+    order = shuffle(wrong.length).map((i) => wrong[i])
     current = 0
     input = ''
     correctCount = 0
@@ -113,7 +126,10 @@
       {/each}
     </ul>
     <div class="footer">
-      <button on:click={reset}>Restart</button>
+      <div style="display:flex; gap:0.5rem">
+        <button on:click={reset}>Restart</button>
+        <button on:click={retryWrong} disabled={results.every((r) => r.isCorrect)}>Retry wrong only</button>
+      </div>
     </div>
   {/if}
 </main>
@@ -130,6 +146,7 @@
   button { appearance: none; border: 1px solid #d1d5db; background: #f9fafb; color: #111827; border-radius: 8px; padding: 0.5rem 0.9rem; cursor: pointer; }
   button.primary { background: #2563eb; border-color: #1d4ed8; color: #fff; }
   button:hover { filter: brightness(0.98); }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
   .status { margin-top: 0.5rem; font-weight: 600; }
   .status.ok { color: #0a7a27; }
   .status.bad { color: #b00020; }
