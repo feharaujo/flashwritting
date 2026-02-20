@@ -3,7 +3,9 @@
 
   let setup = true
   let wordCount = 25
+  let mixLanguages = false
   let order: number[] = []
+  let reversed: boolean[] = []
   let current = 0
   let input = ''
   let correctCount = 0
@@ -11,7 +13,7 @@
   let showExample = ''
   let showExampleTranslation = ''
   let completed = false
-  type ResultItem = { question: string; user: string; correct: string; example: string; exampleTranslation: string; isCorrect: boolean; index: number }
+  type ResultItem = { question: string; user: string; correct: string; example: string; exampleTranslation: string; isCorrect: boolean; index: number; reversed: boolean }
   let results: ResultItem[] = []
 
   $: total = data.cards.length
@@ -26,8 +28,13 @@
     return arr
   }
 
+  function makeReversed(len: number) {
+    return Array.from({ length: len }, () => mixLanguages && Math.random() < 0.5)
+  }
+
   function start() {
     order = shuffle(total).slice(0, clampedCount)
+    reversed = makeReversed(order.length)
     current = 0
     correctCount = 0
     completed = false
@@ -41,19 +48,21 @@
 
   function submit() {
     const card = data.cards[order[current]]
-    const expected = card.answer.trim().toLowerCase()
+    const isReversed = reversed[current]
+    const expected = (isReversed ? card.question : card.answer).trim().toLowerCase()
     const value = input.trim().toLowerCase()
     const ok = value === expected
     results = [
       ...results,
       {
-        question: card.question,
+        question: isReversed ? card.answer : card.question,
         user: input.trim(),
-        correct: card.answer,
+        correct: isReversed ? card.question : card.answer,
         example: card.example,
         exampleTranslation: card.exampleTranslation,
         isCorrect: ok,
-        index: order[current]
+        index: order[current],
+        reversed: isReversed
       }
     ]
     showExample = card.example
@@ -74,7 +83,8 @@
 
   function reveal() {
     const card = data.cards[order[current]]
-    showResult = card.answer
+    const isReversed = reversed[current]
+    showResult = isReversed ? card.question : card.answer
     showExample = card.example
     showExampleTranslation = card.exampleTranslation
   }
@@ -82,6 +92,7 @@
   function reset() {
     setup = true
     order = []
+    reversed = []
     current = 0
     input = ''
     correctCount = 0
@@ -96,6 +107,7 @@
     const wrong = results.filter((r) => !r.isCorrect).map((r) => r.index)
     if (wrong.length === 0) return
     order = shuffle(wrong.length).map((i) => wrong[i])
+    reversed = makeReversed(order.length)
     current = 0
     input = ''
     correctCount = 0
@@ -146,6 +158,12 @@
         />
       </div>
 
+      <label class="setup-toggle">
+        <input type="checkbox" bind:checked={mixLanguages} />
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span class="toggle-label">Mix languages <span class="toggle-flag">🇳🇱</span> ↔ 🇬🇧</span>
+      </label>
+
       <button class="btn-primary btn-start" on:click={start}>
         Start — {clampedCount} word{clampedCount === 1 ? '' : 's'}
       </button>
@@ -172,7 +190,9 @@
     <!-- Card -->
     <div class="card">
       {#key current}
-        <p class="question">{data.cards[order[current]].question}</p>
+        <p class="question">
+          {#if reversed[current]}<span class="question-flag">🇳🇱</span>{/if}{reversed[current] ? data.cards[order[current]].answer : data.cards[order[current]].question}
+        </p>
       {/key}
 
       <input
@@ -241,7 +261,7 @@
           <li class="result-item" class:result-ok={r.isCorrect} class:result-bad={!r.isCorrect}>
             <span class="result-icon">{r.isCorrect ? '✓' : '✗'}</span>
             <div class="result-body">
-              <span class="result-q">{r.question}</span>
+              <span class="result-q">{#if r.reversed}<span class="result-flag">🇳🇱</span>{/if}{r.question}</span>
               {#if r.isCorrect}
                 <span class="result-ans ans-correct">{r.correct}</span>
               {:else}
@@ -385,6 +405,70 @@
     width: 100%;
     padding: 0.7rem 1rem;
     font-size: 1rem;
+  }
+
+  .setup-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    cursor: pointer;
+    user-select: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .setup-toggle input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .toggle-track {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    background: var(--border);
+    border-radius: 99px;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .setup-toggle input:checked ~ .toggle-track {
+    background: var(--accent);
+  }
+
+  .toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+
+  .setup-toggle input:checked ~ .toggle-track .toggle-thumb {
+    transform: translateX(18px);
+  }
+
+  .toggle-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .toggle-flag { font-style: normal; }
+
+  .question-flag {
+    margin-right: 0.4rem;
+    font-style: normal;
+  }
+
+  .result-flag {
+    margin-right: 0.3rem;
+    font-style: normal;
   }
 
   /* ── Layout ──────────────────────────────────────────── */
