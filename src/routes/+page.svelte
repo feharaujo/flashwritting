@@ -4,6 +4,7 @@
   let setup = true
   let wordCount = 25
   let mixLanguages = false
+  let autoPlayDutch = false
   let order: number[] = []
   let reversed: boolean[] = []
   let current = 0
@@ -12,12 +13,27 @@
   let showResult = ''
   let showExample = ''
   let showExampleTranslation = ''
+  let showDutchWord = ''
   let completed = false
   type ResultItem = { question: string; user: string; correct: string; example: string; exampleTranslation: string; isCorrect: boolean; index: number; reversed: boolean }
   let results: ResultItem[] = []
 
   $: total = data.cards.length
   $: clampedCount = Math.min(Math.max(1, wordCount), total)
+
+  function speak(text: string) {
+    if (!('speechSynthesis' in window)) return
+    window.speechSynthesis.cancel()
+    const utterance = new SpeechSynthesisUtterance(text)
+    utterance.lang = 'nl-NL'
+    utterance.rate = 0.85
+    window.speechSynthesis.speak(utterance)
+  }
+
+  function maybeAutoPlay() {
+    if (!autoPlayDutch || completed) return
+    if (reversed[current]) speak(data.cards[order[current]].answer)
+  }
 
   function shuffle(n: number) {
     const arr = [...Array(n).keys()]
@@ -42,16 +58,22 @@
     showResult = ''
     showExample = ''
     showExampleTranslation = ''
+    showDutchWord = ''
     results = []
     setup = false
+    maybeAutoPlay()
   }
 
   function submit() {
     const card = data.cards[order[current]]
     const isReversed = reversed[current]
-    const expected = (isReversed ? card.question : card.answer).trim().toLowerCase()
+    const variants = (isReversed ? card.question : card.answer)
+      .replace(/\s*\(.*?\)\s*/g, ' ')
+      .split('/')
+      .map((v) => v.trim().toLowerCase())
+      .filter(Boolean)
     const value = input.trim().toLowerCase()
-    const ok = value === expected
+    const ok = variants.includes(value)
     results = [
       ...results,
       {
@@ -67,6 +89,7 @@
     ]
     showExample = card.example
     showExampleTranslation = card.exampleTranslation
+    showDutchWord = card.answer
     if (ok) {
       correctCount += 1
       showResult = 'Correct'
@@ -76,6 +99,7 @@
     if (current < order.length - 1) {
       current += 1
       input = ''
+      maybeAutoPlay()
     } else {
       completed = true
     }
@@ -87,6 +111,7 @@
     showResult = isReversed ? card.question : card.answer
     showExample = card.example
     showExampleTranslation = card.exampleTranslation
+    showDutchWord = card.answer
   }
 
   function reset() {
@@ -99,6 +124,7 @@
     showResult = ''
     showExample = ''
     showExampleTranslation = ''
+    showDutchWord = ''
     completed = false
     results = []
   }
@@ -114,8 +140,10 @@
     showResult = ''
     showExample = ''
     showExampleTranslation = ''
+    showDutchWord = ''
     completed = false
     results = []
+    maybeAutoPlay()
   }
 
   $: pct = Math.round((correctCount / order.length) * 100)
@@ -164,6 +192,12 @@
         <span class="toggle-label">Mix languages <span class="toggle-flag">🇳🇱</span> ↔ 🇬🇧</span>
       </label>
 
+      <label class="setup-toggle">
+        <input type="checkbox" bind:checked={autoPlayDutch} />
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span class="toggle-label">Auto-play Dutch pronunciation 🔊</span>
+      </label>
+
       <button class="btn-primary btn-start" on:click={start}>
         Start — {clampedCount} word{clampedCount === 1 ? '' : 's'}
       </button>
@@ -190,9 +224,13 @@
     <!-- Card -->
     <div class="card">
       {#key current}
-        <p class="question">
-          {#if reversed[current]}<span class="question-flag">🇳🇱</span>{/if}{reversed[current] ? data.cards[order[current]].answer : data.cards[order[current]].question}
-        </p>
+        {#if reversed[current]}
+          <p class="question">
+            <span class="question-flag">🇳🇱</span>{data.cards[order[current]].answer}<button class="speak-btn" on:click={() => speak(data.cards[order[current]].answer)}>🔊</button>
+          </p>
+        {:else}
+          <p class="question">{data.cards[order[current]].question}</p>
+        {/if}
       {/key}
 
       <input
@@ -222,6 +260,9 @@
           {:else}
             <span class="feedback-pill pill-reveal">→ Answer</span>
             <strong class="feedback-detail">{showResult}</strong>
+          {/if}
+          {#if showDutchWord}
+            <button class="speak-btn speak-btn-feedback" on:click={() => speak(showDutchWord)}>🔊 Hear Dutch</button>
           {/if}
           {#if showExample}
             <blockquote class="example-quote">"{showExample}"</blockquote>
@@ -263,10 +304,16 @@
             <div class="result-body">
               <span class="result-q">{#if r.reversed}<span class="result-flag">🇳🇱</span>{/if}{r.question}</span>
               {#if r.isCorrect}
-                <span class="result-ans ans-correct">{r.correct}</span>
+                <span class="result-ans ans-correct">
+                  {r.correct}
+                  <button class="speak-btn-sm" on:click={() => speak(r.reversed ? r.question : r.correct)}>🔊</button>
+                </span>
               {:else}
                 <span class="result-ans ans-wrong">You: <em>{r.user || '(empty)'}</em></span>
-                <span class="result-ans ans-correct">Correct: <strong>{r.correct}</strong></span>
+                <span class="result-ans ans-correct">
+                  Correct: <strong>{r.correct}</strong>
+                  <button class="speak-btn-sm" on:click={() => speak(r.reversed ? r.question : r.correct)}>🔊</button>
+                </span>
               {/if}
               <em class="result-example">"{r.example}"</em>
               {#if r.exampleTranslation}
@@ -652,6 +699,63 @@
     opacity: 0.38;
     cursor: not-allowed;
   }
+
+  /* ── Speak buttons ───────────────────────────────────── */
+  .speak-btn {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0 0 0 0.4rem;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--muted);
+    vertical-align: middle;
+    transition: color 0.18s, transform 0.1s;
+  }
+
+  .speak-btn:hover { color: var(--accent); transform: scale(1.15); }
+  .speak-btn:active { transform: scale(0.95); }
+
+  .speak-btn-feedback {
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+    border: 1.5px solid var(--border);
+    border-radius: 99px;
+    color: var(--muted);
+    background: none;
+    cursor: pointer;
+    align-self: flex-start;
+    gap: 0.3rem;
+    transition: color 0.18s, border-color 0.18s, background 0.18s;
+  }
+
+  .speak-btn-feedback:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--card);
+  }
+
+  .speak-btn-sm {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0 0 0 0.3rem;
+    font-size: 0.82rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--muted);
+    vertical-align: middle;
+    opacity: 0.7;
+    transition: color 0.18s, opacity 0.18s, transform 0.1s;
+  }
+
+  .speak-btn-sm:hover { color: var(--accent); opacity: 1; transform: scale(1.1); }
+  .speak-btn-sm:active { transform: scale(0.92); }
 
   /* ── Feedback ────────────────────────────────────────── */
   .feedback {
