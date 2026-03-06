@@ -25,6 +25,124 @@
   let confettiActive = false
   let celebrateGlow = false
 
+  // Phrase Builder mode state
+  let mode: 'cards' | 'phrases' = 'cards'
+  let tenses = { present: true, past: false, future: false }
+  let currentTense = 'present'
+  type PhraseValidation = { correct: boolean; phrase: string; explanation: string }
+  let phraseResult: PhraseValidation | null = null
+  let phraseLoading = false
+  let phraseInput = ''
+  type PhraseResultItem = { word: string; wordTranslation: string; tense: string; userPhrase: string; validation: PhraseValidation | null; isCorrect: boolean; index: number }
+  let phraseResults: PhraseResultItem[] = []
+  let phraseCorrectCount = 0
+  let phraseWaitingNext = false
+
+  function pickTense(): string {
+    const selected = Object.entries(tenses).filter(([, v]) => v).map(([k]) => k)
+    return selected[Math.floor(Math.random() * selected.length)]
+  }
+
+  function startPhrases() {
+    order = weightedShuffle().slice(0, clampedCount)
+    current = 0
+    correctCount = 0
+    phraseCorrectCount = 0
+    streak = 0
+    bestStreak = 0
+    completed = false
+    phraseInput = ''
+    phraseResult = null
+    phraseLoading = false
+    phraseResults = []
+    phraseWaitingNext = false
+    currentTense = pickTense()
+    setup = false
+  }
+
+  async function submitPhrase() {
+    if (phraseLoading || !phraseInput.trim()) return
+    phraseLoading = true
+    phraseResult = null
+    const card = data.cards[order[current]]
+    try {
+      const res = await fetch('/api/validate-phrase', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          word: card.answer,
+          wordTranslation: card.question,
+          phrase: phraseInput.trim(),
+          tense: currentTense
+        })
+      })
+      const result: PhraseValidation = await res.json()
+      phraseResult = result
+      const ok = result.correct
+      phraseResults = [...phraseResults, {
+        word: card.answer,
+        wordTranslation: card.question,
+        tense: currentTense,
+        userPhrase: phraseInput.trim(),
+        validation: result,
+        isCorrect: ok,
+        index: order[current]
+      }]
+      if (ok) {
+        phraseCorrectCount += 1
+        correctCount += 1
+        streak += 1
+        if (streak > bestStreak) bestStreak = streak
+        if (streak >= 3) triggerConfetti()
+        fetch('/api/tracker', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify([card.question]) })
+          .then(r => r.json()).then(t => { tracker = t })
+          .catch(() => {})
+      } else {
+        streak = 0
+        const key = card.question
+        tracker = { ...tracker, [key]: (tracker[key] ?? 0) + 1 }
+        fetch('/api/tracker', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify([key])
+        }).catch(() => {})
+      }
+      phraseWaitingNext = true
+    } catch {
+      phraseResult = { correct: false, phrase: '', explanation: 'Failed to validate. Please try again.' }
+    } finally {
+      phraseLoading = false
+    }
+  }
+
+  function nextPhrase() {
+    if (current < order.length - 1) {
+      current += 1
+      phraseInput = ''
+      phraseResult = null
+      phraseWaitingNext = false
+      currentTense = pickTense()
+    } else {
+      completed = true
+    }
+  }
+
+  function skipPhrase() {
+    if (phraseLoading) return
+    const card = data.cards[order[current]]
+    phraseResults = [...phraseResults, {
+      word: card.answer,
+      wordTranslation: card.question,
+      tense: currentTense,
+      userPhrase: '(skipped)',
+      validation: null,
+      isCorrect: false,
+      index: order[current]
+    }]
+    streak = 0
+    nextPhrase()
+  }
+
   $: total = data.cards.length
   $: clampedCount = Math.min(Math.max(1, wordCount), total)
 
@@ -57,7 +175,7 @@
 
   function weightedShuffle(): number[] {
     return Array.from({ length: total }, (_, i) => i)
-      .map(i => ({ idx: i, score: Math.random() * (1 + Math.log1p(tracker[data.cards[i].question] ?? 0) * 2) }))
+      .map(i => ({ idx: i, score: Math.random() * (1 + Math.min(Math.log1p(tracker[data.cards[i].question] ?? 0) * 2, 2)) }))
       .sort((a, b) => b.score - a.score)
       .map(x => x.idx)
   }
@@ -119,6 +237,9 @@
       streak += 1
       if (streak > bestStreak) bestStreak = streak
       showResult = 'Correct'
+      fetch('/api/tracker', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify([card.question]) })
+        .then(r => r.json()).then(t => { tracker = t })
+        .catch(() => {})
       if (streak >= 3) triggerConfetti()
     } else {
       showResult = 'Incorrect'
@@ -168,6 +289,12 @@
     showDutchWord = ''
     completed = false
     results = []
+    phraseInput = ''
+    phraseResult = null
+    phraseResults = []
+    phraseCorrectCount = 0
+    phraseWaitingNext = false
+    phraseLoading = false
   }
 
   function retryWrong() {
@@ -189,7 +316,7 @@
     maybeAutoPlay()
   }
 
-  $: pct = Math.round((correctCount / order.length) * 100)
+  $: pct = order.length > 0 ? Math.round((correctCount / order.length) * 100) : 0
 </script>
 
 <svelte:head>
@@ -217,6 +344,18 @@
 
       <div class="setup-card">
         <div class="setup-card-inner">
+          <!-- Mode selector -->
+          <div class="mode-selector">
+            <button class="mode-pill" class:mode-active={mode === 'cards'} on:click={() => mode = 'cards'}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Flash Cards
+            </button>
+            <button class="mode-pill" class:mode-active={mode === 'phrases'} on:click={() => mode = 'phrases'}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Phrase Builder
+            </button>
+          </div>
+
           <div class="setup-section">
             <label class="setup-label" for="word-slider">Words per session</label>
             <div class="word-picker">
@@ -241,33 +380,202 @@
             </div>
           </div>
 
-          <div class="setup-options">
-            <label class="option-row">
-              <input type="checkbox" bind:checked={mixLanguages} />
-              <span class="option-switch"><span class="option-knob"></span></span>
-              <span class="option-content">
-                <span class="option-title">Mix directions</span>
-                <span class="option-desc">Practice NL → EN and EN → NL</span>
-              </span>
-            </label>
+          {#if mode === 'cards'}
+            <div class="setup-options">
+              <label class="option-row">
+                <input type="checkbox" bind:checked={mixLanguages} />
+                <span class="option-switch"><span class="option-knob"></span></span>
+                <span class="option-content">
+                  <span class="option-title">Mix directions</span>
+                  <span class="option-desc">Practice NL → EN and EN → NL</span>
+                </span>
+              </label>
 
-            <label class="option-row">
-              <input type="checkbox" bind:checked={autoPlayDutch} />
-              <span class="option-switch"><span class="option-knob"></span></span>
-              <span class="option-content">
-                <span class="option-title">Auto-play audio</span>
-                <span class="option-desc">Hear Dutch pronunciation automatically</span>
-              </span>
-            </label>
-          </div>
+              <label class="option-row">
+                <input type="checkbox" bind:checked={autoPlayDutch} />
+                <span class="option-switch"><span class="option-knob"></span></span>
+                <span class="option-content">
+                  <span class="option-title">Auto-play audio</span>
+                  <span class="option-desc">Hear Dutch pronunciation automatically</span>
+                </span>
+              </label>
+            </div>
+          {:else}
+            <div class="setup-section">
+              <label class="setup-label">Tense</label>
+              <div class="tense-options">
+                <label class="tense-chip" class:tense-active={tenses.present}>
+                  <input type="checkbox" bind:checked={tenses.present} />
+                  Present
+                </label>
+                <label class="tense-chip" class:tense-active={tenses.past}>
+                  <input type="checkbox" bind:checked={tenses.past} />
+                  Past
+                </label>
+                <label class="tense-chip" class:tense-active={tenses.future}>
+                  <input type="checkbox" bind:checked={tenses.future} />
+                  Future
+                </label>
+              </div>
+            </div>
+          {/if}
 
-          <button class="btn-go" on:click={start}>
-            <span class="btn-go-text">Start learning</span>
-            <span class="btn-go-count">{clampedCount} words</span>
-            <span class="btn-go-arrow">→</span>
-          </button>
+          {#if mode === 'cards'}
+            <button class="btn-go" on:click={start}>
+              <span class="btn-go-text">Start learning</span>
+              <span class="btn-go-count">{clampedCount} words</span>
+              <span class="btn-go-arrow">→</span>
+            </button>
+          {:else}
+            <button class="btn-go" on:click={startPhrases} disabled={!tenses.present && !tenses.past && !tenses.future}>
+              <span class="btn-go-text">Start practicing</span>
+              <span class="btn-go-count">{clampedCount} words</span>
+              <span class="btn-go-arrow">→</span>
+            </button>
+          {/if}
         </div>
       </div>
+    </div>
+
+  {:else if !completed && mode === 'phrases'}
+    <!-- ━━━ PHRASE BUILDER SCREEN ━━━ -->
+    <header class="quiz-header">
+      <div class="brand-mini">
+        <div class="brand-icon-sm">
+          <span class="brand-nl-sm">NL</span>
+        </div>
+        <span class="brand-name-sm">FlashDutch</span>
+      </div>
+      <div class="header-right">
+        {#if streak >= 2}
+          <div class="streak-badge">
+            <span class="streak-fire">🔥</span>
+            <span class="streak-num">{streak}</span>
+          </div>
+        {/if}
+        <button class="btn-reset" on:click={reset} title="Back to setup">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: {(current / order.length) * 100}%"></div>
+      </div>
+      <div class="progress-info">
+        <span class="progress-current">{current + 1}</span>
+        <span class="progress-divider">/</span>
+        <span class="progress-total">{order.length}</span>
+      </div>
+    </div>
+
+    {#if confettiActive}
+      <div class="confetti-container">
+        {#each Array(50) as _, i}
+          {@const angle = (i / 50) * Math.PI * 2 + (Math.random() - 0.5) * 0.5}
+          {@const dist = 150 + Math.random() * 350}
+          {@const tx = Math.cos(angle) * dist}
+          {@const ty = Math.sin(angle) * dist * 0.7 - 80}
+          <div class="confetti-piece" style="--tx:{tx}px;--ty:{ty}px;--delay:{Math.random() * 0.25}s;--r:{Math.random() * 720 - 360}deg;--size:{8 + Math.random() * 8}px"></div>
+        {/each}
+      </div>
+    {/if}
+
+    <div class="quiz-card" class:card-celebrate={celebrateGlow}>
+      <div class="card-category">
+        <span class="lang-tag lang-nl">Phrase Builder</span>
+        <span class="tense-tag tense-tag-{currentTense}">{currentTense}</span>
+      </div>
+
+      {#key current}
+        <div class="card-word">
+          <span class="word-text">{data.cards[order[current]].answer}</span>
+          <button class="btn-speak" on:click={() => speak(data.cards[order[current]].answer)} title="Listen">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+          </button>
+        </div>
+        <p class="phrase-translation">{data.cards[order[current]].question}</p>
+      {/key}
+
+      <div class="input-group">
+        <textarea
+          class="answer-field phrase-field"
+          bind:value={phraseInput}
+          placeholder="Write a Dutch sentence using this word…"
+          on:keydown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (phraseWaitingNext) nextPhrase(); else submitPhrase(); } }}
+          autocomplete="off"
+          spellcheck="false"
+          rows="3"
+          disabled={phraseLoading || phraseWaitingNext}
+        ></textarea>
+        <div class="input-hint">{phraseWaitingNext ? 'Press Enter for next word' : 'Press Enter to submit'}</div>
+      </div>
+
+      <div class="card-buttons">
+        {#if phraseWaitingNext}
+          <button class="btn-submit" on:click={nextPhrase}>
+            {current < order.length - 1 ? 'Next' : 'Finish'}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        {:else}
+          <button class="btn-submit" on:click={submitPhrase} disabled={phraseLoading || !phraseInput.trim()}>
+            {#if phraseLoading}
+              <span class="spinner"></span> Checking…
+            {:else}
+              Check
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            {/if}
+          </button>
+          <button class="btn-reveal" on:click={skipPhrase} disabled={phraseLoading}>
+            Skip
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+          </button>
+        {/if}
+      </div>
+
+      {#if phraseResult}
+        <div
+          class="feedback-block"
+          class:fb-correct={phraseResult.correct}
+          class:fb-wrong={!phraseResult.correct}
+        >
+          {#if phraseResult.correct}
+            <div class="fb-header">
+              <span class="fb-badge fb-badge-correct">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Correct
+              </span>
+              {#if streak >= 2}
+                <span class="fb-streak">🔥 {streak} streak!</span>
+              {/if}
+            </div>
+            {#if phraseResult.phrase}
+              <p class="fb-answer">{phraseResult.phrase}</p>
+            {/if}
+          {:else}
+            <div class="fb-header">
+              <span class="fb-badge fb-badge-wrong">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                Needs improvement
+              </span>
+            </div>
+            {#if phraseResult.phrase}
+              <p class="fb-corrected"><strong>{phraseResult.phrase}</strong></p>
+            {/if}
+            {#if phraseResult.explanation}
+              <p class="fb-explanation">{phraseResult.explanation}</p>
+            {/if}
+          {/if}
+        </div>
+      {/if}
+    </div>
+
+    <div class="score-pill">
+      <span class="score-correct">{correctCount}</span>
+      <span class="score-label">correct</span>
+      <span class="score-divider">·</span>
+      <span class="score-remaining">{order.length - current - (phraseResult ? 0 : 1)} left</span>
     </div>
 
   {:else if !completed}
@@ -463,42 +771,73 @@
 
       <div class="review-section">
         <h3 class="review-title">Review</h3>
-        <ul class="review-list">
-          {#each results as r, i}
-            <li class="review-item" class:review-ok={r.isCorrect} class:review-fail={!r.isCorrect}>
-              <div class="review-status">
-                {#if r.isCorrect}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                {:else}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                {/if}
-              </div>
-              <div class="review-content">
-                <div class="review-word">
-                  {#if r.reversed}<span class="review-flag">NL</span>{/if}
-                  {r.question}
+        {#if mode === 'phrases'}
+          <ul class="review-list">
+            {#each phraseResults as r}
+              <li class="review-item" class:review-ok={r.isCorrect} class:review-fail={!r.isCorrect}>
+                <div class="review-status">
+                  {#if r.isCorrect}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  {:else}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  {/if}
                 </div>
-                {#if r.isCorrect}
-                  <div class="review-answer review-answer-ok">{r.correct}
-                    <button class="btn-speak-sm" on:click={() => speak(r.reversed ? r.question : r.correct)} aria-label="Listen to pronunciation">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                    </button>
+                <div class="review-content">
+                  <div class="review-word">
+                    {r.word}
+                    <span class="review-flag">{r.tense}</span>
                   </div>
-                {:else}
-                  <div class="review-answer review-answer-wrong">
-                    <span class="review-yours">{r.user || '—'}</span>
-                    <span class="review-arrow">→</span>
-                    <strong>{r.correct}</strong>
-                    <button class="btn-speak-sm" on:click={() => speak(r.reversed ? r.question : r.correct)} aria-label="Listen to pronunciation">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                    </button>
+                  <div class="review-phrase">{r.userPhrase}</div>
+                  {#if !r.isCorrect && r.validation}
+                    <div class="review-correction">
+                      <strong>{r.validation.phrase}</strong>
+                    </div>
+                    {#if r.validation.explanation}
+                      <div class="review-explanation">{r.validation.explanation}</div>
+                    {/if}
+                  {/if}
+                </div>
+              </li>
+            {/each}
+          </ul>
+        {:else}
+          <ul class="review-list">
+            {#each results as r, i}
+              <li class="review-item" class:review-ok={r.isCorrect} class:review-fail={!r.isCorrect}>
+                <div class="review-status">
+                  {#if r.isCorrect}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  {:else}
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  {/if}
+                </div>
+                <div class="review-content">
+                  <div class="review-word">
+                    {#if r.reversed}<span class="review-flag">NL</span>{/if}
+                    {r.question}
                   </div>
-                {/if}
-                <div class="review-example">{r.example}</div>
-              </div>
-            </li>
-          {/each}
-        </ul>
+                  {#if r.isCorrect}
+                    <div class="review-answer review-answer-ok">{r.correct}
+                      <button class="btn-speak-sm" on:click={() => speak(r.reversed ? r.question : r.correct)} aria-label="Listen to pronunciation">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                      </button>
+                    </div>
+                  {:else}
+                    <div class="review-answer review-answer-wrong">
+                      <span class="review-yours">{r.user || '—'}</span>
+                      <span class="review-arrow">→</span>
+                      <strong>{r.correct}</strong>
+                      <button class="btn-speak-sm" on:click={() => speak(r.reversed ? r.question : r.correct)} aria-label="Listen to pronunciation">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                      </button>
+                    </div>
+                  {/if}
+                  <div class="review-example">{r.example}</div>
+                </div>
+              </li>
+            {/each}
+          </ul>
+        {/if}
       </div>
 
       <div class="results-actions">
@@ -506,9 +845,11 @@
           <span class="btn-go-text">New session</span>
           <span class="btn-go-arrow">→</span>
         </button>
-        <button class="btn-retry" on:click={retryWrong} disabled={results.every((r) => r.isCorrect)}>
-          Retry {results.filter(r => !r.isCorrect).length} mistakes
-        </button>
+        {#if mode === 'cards'}
+          <button class="btn-retry" on:click={retryWrong} disabled={results.every((r) => r.isCorrect)}>
+            Retry {results.filter(r => !r.isCorrect).length} mistakes
+          </button>
+        {/if}
       </div>
     </div>
   {/if}
@@ -1554,6 +1895,165 @@
   }
   .btn-retry:hover:not(:disabled) { border-color: var(--orange); color: var(--orange); }
   .btn-retry:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  /* ━━━━━━━━━━ MODE SELECTOR ━━━━━━━━━━ */
+  .mode-selector {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    background: var(--surface);
+    padding: 0.3rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+  }
+
+  .mode-pill {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.25s var(--ease-out);
+  }
+
+  .mode-pill:hover { color: var(--text-secondary); }
+
+  .mode-active {
+    background: var(--surface-raised);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ━━━ Tense selector ━━━ */
+  .tense-options {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .tense-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.1rem;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 99px;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s var(--ease-out);
+  }
+
+  .tense-chip input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+
+  .tense-chip:hover { border-color: var(--text-muted); }
+
+  .tense-active {
+    background: var(--orange-subtle);
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+
+  /* ━━━ Tense tag in card ━━━ */
+  .tense-tag {
+    display: inline-flex;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+  }
+
+  .tense-tag-present { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
+  .tense-tag-past { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
+  .tense-tag-future { background: rgba(168, 85, 247, 0.08); color: #A855F7; border: 1px solid rgba(168, 85, 247, 0.2); }
+
+  /* ━━━ Phrase Builder card extras ━━━ */
+  .phrase-translation {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-top: -1.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .phrase-field {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.6;
+    font-family: var(--font-body);
+  }
+
+  /* ━━━ Spinner ━━━ */
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* ━━━ Phrase feedback extras ━━━ */
+  .fb-corrected {
+    font-size: 1rem;
+    color: var(--green);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .fb-corrected strong { font-weight: 700; }
+
+  .fb-explanation {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* ━━━ Phrase review items ━━━ */
+  .review-phrase {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .review-correction {
+    font-size: 0.88rem;
+    color: var(--green);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .review-explanation {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
 
   /* ━━━ Mobile tweaks ━━━ */
   @media (max-width: 480px) {
