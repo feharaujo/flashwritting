@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let data: { cards: { question: string; answer: string; example: string; exampleTranslation: string }[]; tracker: Record<string, number> }
+  export let data: { cards: { question: string; answer: string[]; context?: string; example: string; exampleTranslation: string }[]; tracker: Record<string, number> }
 
   let tracker: Record<string, number> = data.tracker ?? {}
 
@@ -19,7 +19,7 @@
   let completed = false
   let streak = 0
   let bestStreak = 0
-  type ResultItem = { question: string; user: string; correct: string; example: string; exampleTranslation: string; isCorrect: boolean; index: number; reversed: boolean }
+  type ResultItem = { question: string; user: string; correct: string; example: string; exampleTranslation: string; isCorrect: boolean; index: number; reversed: boolean; context?: string }
   let results: ResultItem[] = []
   let cardFlip = false
   let confettiActive = false
@@ -70,7 +70,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          word: card.answer,
+          word: card.answer[0],
           wordTranslation: card.question,
           phrase: phraseInput.trim(),
           tense: currentTense
@@ -80,7 +80,7 @@
       phraseResult = result
       const ok = result.correct
       phraseResults = [...phraseResults, {
-        word: card.answer,
+        word: card.answer[0],
         wordTranslation: card.question,
         tense: currentTense,
         userPhrase: phraseInput.trim(),
@@ -131,7 +131,7 @@
     if (phraseLoading) return
     const card = data.cards[order[current]]
     phraseResults = [...phraseResults, {
-      word: card.answer,
+      word: card.answer[0],
       wordTranslation: card.question,
       tense: currentTense,
       userPhrase: '(skipped)',
@@ -157,7 +157,7 @@
 
   function maybeAutoPlay() {
     if (!autoPlayDutch || completed) return
-    if (reversed[current]) speak(data.cards[order[current]].answer)
+    if (reversed[current]) speak(data.cards[order[current]].answer[0])
   }
 
   function shuffle(n: number) {
@@ -209,29 +209,31 @@
   function submit() {
     const card = data.cards[order[current]]
     const isReversed = reversed[current]
-    const variants = (isReversed ? card.question : card.answer)
-      .replace(/\s*\(.*?\)\s*/g, ' ')
-      .split('/')
-      .map((v) => v.trim().toLowerCase())
-      .filter(Boolean)
+    let variants: string[]
+    if (isReversed) {
+      variants = card.question.split('/').map((v) => v.trim().toLowerCase()).filter(Boolean)
+    } else {
+      variants = card.answer.map((v) => v.trim().toLowerCase())
+    }
     const value = input.trim().toLowerCase()
     const ok = variants.includes(value)
     results = [
       ...results,
       {
-        question: isReversed ? card.answer : card.question,
+        question: isReversed ? card.answer.join(', ') : card.question,
         user: input.trim(),
-        correct: isReversed ? card.question : card.answer,
+        correct: isReversed ? card.question : card.answer.join(', '),
         example: card.example,
         exampleTranslation: card.exampleTranslation,
         isCorrect: ok,
         index: order[current],
-        reversed: isReversed
+        reversed: isReversed,
+        context: card.context
       }
     ]
     showExample = card.example
     showExampleTranslation = card.exampleTranslation
-    showDutchWord = card.answer
+    showDutchWord = card.answer[0]
     if (ok) {
       correctCount += 1
       streak += 1
@@ -268,10 +270,10 @@
   function reveal() {
     const card = data.cards[order[current]]
     const isReversed = reversed[current]
-    showResult = isReversed ? card.question : card.answer
+    showResult = isReversed ? card.question : card.answer.join(', ')
     showExample = card.example
     showExampleTranslation = card.exampleTranslation
-    showDutchWord = card.answer
+    showDutchWord = card.answer[0]
   }
 
   function reset() {
@@ -490,12 +492,15 @@
 
       {#key current}
         <div class="card-word">
-          <span class="word-text">{data.cards[order[current]].answer}</span>
-          <button class="btn-speak" on:click={() => speak(data.cards[order[current]].answer)} title="Listen">
+          <span class="word-text">{data.cards[order[current]].answer[0]}</span>
+          <button class="btn-speak" on:click={() => speak(data.cards[order[current]].answer[0])} title="Listen">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
           </button>
         </div>
         <p class="phrase-translation">{data.cards[order[current]].question}</p>
+        {#if data.cards[order[current]].context}
+          <span class="card-context">{data.cards[order[current]].context}</span>
+        {/if}
       {/key}
 
       <div class="input-group">
@@ -638,14 +643,17 @@
       {#key current}
         <div class="card-word">
           {#if reversed[current]}
-            <span class="word-text">{data.cards[order[current]].answer}</span>
-            <button class="btn-speak" on:click={() => speak(data.cards[order[current]].answer)} title="Listen">
+            <span class="word-text">{data.cards[order[current]].answer.join(', ')}</span>
+            <button class="btn-speak" on:click={() => speak(data.cards[order[current]].answer[0])} title="Listen">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
             </button>
           {:else}
             <span class="word-text">{data.cards[order[current]].question}</span>
           {/if}
         </div>
+        {#if data.cards[order[current]].context}
+          <span class="card-context">{data.cards[order[current]].context}</span>
+        {/if}
       {/key}
 
       <div class="input-group">
@@ -818,7 +826,7 @@
                   </div>
                   {#if r.isCorrect}
                     <div class="review-answer review-answer-ok">{r.correct}
-                      <button class="btn-speak-sm" on:click={() => speak(r.reversed ? r.question : r.correct)} aria-label="Listen to pronunciation">
+                      <button class="btn-speak-sm" on:click={() => speak(r.reversed ? r.question : r.correct.split(', ')[0])} aria-label="Listen to pronunciation">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
                       </button>
                     </div>
@@ -827,7 +835,7 @@
                       <span class="review-yours">{r.user || '—'}</span>
                       <span class="review-arrow">→</span>
                       <strong>{r.correct}</strong>
-                      <button class="btn-speak-sm" on:click={() => speak(r.reversed ? r.question : r.correct)} aria-label="Listen to pronunciation">
+                      <button class="btn-speak-sm" on:click={() => speak(r.reversed ? r.question : r.correct.split(', ')[0])} aria-label="Listen to pronunciation">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
                       </button>
                     </div>
@@ -1449,6 +1457,17 @@
     letter-spacing: -0.03em;
     line-height: 1.2;
     text-align: center;
+  }
+
+  .card-context {
+    display: block;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary, #888);
+    font-style: italic;
+    margin-top: -1.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
   }
 
   .btn-speak {

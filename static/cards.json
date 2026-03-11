@@ -1,187 +1,3519 @@
 {
-    "Year": { "word": "Jaar", "example": "Ik ben 20 jaar oud.", "exampleTranslation": "I am 20 years old." },
-    "Here": { "word": "Hier", "example": "Ik woon hier.", "exampleTranslation": "I live here." },
-    "We": { "word": "Wij", "example": "Wij zijn vrienden.", "exampleTranslation": "We are friends." },
-    "To keep": { "word": "Houden", "example": "Je mag het houden.", "exampleTranslation": "You may keep it." },
-    "To sit": { "word": "zitten", "example": "Ik zit op een stoel.", "exampleTranslation": "I am sitting on a chair." },
-    "Hand": { "word": "hand", "example": "Ik was mijn handen.", "exampleTranslation": "I wash my hands." },
-    "Long": { "word": "lang", "example": "De tafel is lang.", "exampleTranslation": "The table is long." },
-    "Two": { "word": "twee", "example": "Ik heb twee katten.", "exampleTranslation": "I have two cats." },
-    "Day": { "word": "dag", "example": "Het is een mooie dag.", "exampleTranslation": "It is a beautiful day." },
-    "First": { "word": "eerst", "example": "Eerst eten, dan spelen.", "exampleTranslation": "First eat, then play." },
-    "only": { "word": "alleen", "example": "Ik ben alleen thuis.", "exampleTranslation": "I am home alone." },
-    "to bring": { "word": "brengen", "example": "Ik breng je een glas water.", "exampleTranslation": "I bring you a glass of water." },
-    "to begin": { "word": "beginnen", "example": "De les begint nu.", "exampleTranslation": "The lesson starts now." },
-    "self": { "word": "zelf", "example": "Ik doe het zelf.", "exampleTranslation": "I do it myself." },
-    "to hear": { "word": "horen", "example": "Ik hoor muziek.", "exampleTranslation": "I hear music." },
-    "new": { "word": "nieuw", "example": "Ik heb een nieuwe tas.", "exampleTranslation": "I have a new bag." },
-    "late": { "word": "laat", "example": "Het is laat. Ik ga slapen.", "exampleTranslation": "It is late. I am going to sleep." },
-    "to feel": { "word": "voelen", "example": "Ik voel me goed.", "exampleTranslation": "I feel good." },
-    "place": { "word": "plaats", "example": "Dit is een mooie plaats.", "exampleTranslation": "This is a beautiful place." },
-    "life": { "word": "leven", "example": "Het leven is goed.", "exampleTranslation": "Life is good." },
-    "house": { "word": "huis", "example": "Mijn huis is klein.", "exampleTranslation": "My house is small." },
-    "home": { "word": "thuis", "example": "Ik ben thuis.", "exampleTranslation": "I am home." },
-    "to fall": { "word": "vallen", "example": "De appel valt op de grond.", "exampleTranslation": "The apple falls on the ground." },
-    "mother": { "word": "moeder", "example": "Mijn moeder is lief.", "exampleTranslation": "My mother is kind." },
-    "to speak": { "word": "spreken", "example": "Ik spreek Nederlands.", "exampleTranslation": "I speak Dutch." },
-    "word": { "word": "woord", "example": "Dat is een nieuw woord.", "exampleTranslation": "That is a new word." },
-    "when": { "word": "wanner", "example": "Wanneer kom je?", "exampleTranslation": "When are you coming?" },
-    "father": { "word": "vader", "example": "Mijn vader is groot.", "exampleTranslation": "My father is tall." },
-    "work": { "word": "werk", "example": "Ik heb veel werk.", "exampleTranslation": "I have a lot of work." },
-    "to work": { "word": "werken", "example": "Ik werk in een winkel.", "exampleTranslation": "I work in a shop." },
-    "each": { "word": "elk", "example": "Elk kind heeft een boek.", "exampleTranslation": "Every child has a book." },
-    "far": { "word": "ver", "example": "De school is niet ver.", "exampleTranslation": "The school is not far." },
-    "later": { "word": "later", "example": "Ik kom later.", "exampleTranslation": "I will come later." },
-    "to tell": { "word": "vertellen", "example": "Vertel me je naam.", "exampleTranslation": "Tell me your name." },
-    "three": { "word": "drie", "example": "Ik heb drie broers.", "exampleTranslation": "I have three brothers." },
-    "old": { "word": "oud", "example": "Hoe oud ben je?", "exampleTranslation": "How old are you?" },
-    "sometimes": { "word": "soms", "example": "Soms regent het.", "exampleTranslation": "Sometimes it rains." },
-    "world": { "word": "wereld", "example": "De wereld is groot.", "exampleTranslation": "The world is large." },
-    "hour": { "word": "uur", "example": "Het is drie uur.", "exampleTranslation": "It is three o'clock." },
-    "kind (type/sort)": { "word": "soort", "example": "Wat voor soort eten is dit?", "exampleTranslation": "What kind of food is this?" },
-    "full": { "word": "vol", "example": "Het glas is vol.", "exampleTranslation": "The glass is full." },
-    "which": { "word": "welk", "example": "Welk boek wil je?", "exampleTranslation": "Which book do you want?" },
-    "door": { "word": "deur", "example": "De deur is open.", "exampleTranslation": "The door is open." },
-    "thing": { "word": "ding", "example": "Wat is dat ding?", "exampleTranslation": "What is that thing?" },
-    "too / too much": { "word": "te", "example": "Het is te warm.", "exampleTranslation": "It is too warm." },
-    "too / also": { "word": "ook", "example": "Ik wil ook een koekje.", "exampleTranslation": "I also want a cookie." },
-    "on": { "word": "op", "example": "De kat zit op de tafel.", "exampleTranslation": "The cat sits on the table." },
-    "that": { "word": "dat", "example": "Ik weet dat.", "exampleTranslation": "I know that." },
-    "before / for": { "word": "voor", "example": "Dit is voor jou.", "exampleTranslation": "This is for you." },
-    "there": { "word": "daar", "example": "De winkel is daar.", "exampleTranslation": "The shop is there." },
-    "shall": { "word": "zullen", "example": "Zullen we gaan?", "exampleTranslation": "Shall we go?" },
-    "can / to be able to": { "word": "kunnen", "example": "Kun je me helpen?", "exampleTranslation": "Can you help me?" },
-    "her (pronoun)": { "word": "haar", "example": "Dit is haar boek.", "exampleTranslation": "This is her book." },
-    "to go": { "word": "gaan", "example": "Ik ga naar school.", "exampleTranslation": "I am going to school." },
-    "him": { "word": "hem", "example": "Ik zie hem.", "exampleTranslation": "I see him." },
-    "to come": { "word": "komen", "example": "Kom je naar het feest?", "exampleTranslation": "Are you coming to the party?" },
-    "then": { "word": "dan", "example": "Eerst eten, dan slapen.", "exampleTranslation": "First eat, then sleep." },
-    "so": { "word": "zo", "example": "Het is niet zo koud.", "exampleTranslation": "It is not that cold." },
-    "must / should": { "word": "moeten", "example": "Ik moet nu gaan.", "exampleTranslation": "I must go now." },
-    "she": { "word": "zij", "example": "Zij is mijn zus.", "exampleTranslation": "She is my sister." },
-    "this": { "word": "deze", "example": "Deze appel is lekker.", "exampleTranslation": "This apple is delicious." },
-    "more (quantity)": { "word": "meer", "example": "Ik wil meer water.", "exampleTranslation": "I want more water." },
-    "to make": { "word": "maken", "example": "Ik maak een tekening.", "exampleTranslation": "I am making a drawing." },
-    "to stand": { "word": "staan", "example": "Ik sta bij de deur.", "exampleTranslation": "I am standing by the door." },
-    "other": { "word": "ander", "example": "Geef me de andere pen.", "exampleTranslation": "Give me the other pen." },
-    "to do": { "word": "doen", "example": "Wat doe je?", "exampleTranslation": "What are you doing?" },
-    "to let / to leave": { "word": "laten", "example": "Laat me slapen.", "exampleTranslation": "Let me sleep." },
-    "already": { "word": "al", "example": "Ik heb al gegeten.", "exampleTranslation": "I have already eaten." },
-    "there (location)": { "word": "er", "example": "Er is een kat in de tuin.", "exampleTranslation": "There is a cat in the garden." },
-    "to think": { "word": "denken", "example": "Ik denk het ook.", "exampleTranslation": "I think so too." },
-    "then (past)": { "word": "toen", "example": "Toen was ik klein.", "exampleTranslation": "Back then I was small." },
-    "to give": { "word": "geven", "example": "Ik geef je een boek.", "exampleTranslation": "I give you a book." },
-    "how": { "word": "hoe", "example": "Hoe gaat het?", "exampleTranslation": "How are you?" },
-    "to find": { "word": "vinden", "example": "Ik vind het leuk.", "exampleTranslation": "I like it." },
-    "fact": { "word": "feit", "example": "Dat is een feit.", "exampleTranslation": "That is a fact." },
-    "to wait": { "word": "wachten", "example": "Ik wacht op jou.", "exampleTranslation": "I am waiting for you." },
-    "to learn (not to teach)": { "word": "leren", "example": "Ik leer Nederlands.", "exampleTranslation": "I am learning Dutch." },
-    "open": { "word": "open", "example": "De deur is open.", "exampleTranslation": "The door is open." },
-    "problem": { "word": "probleem", "example": "Geen probleem!", "exampleTranslation": "No problem!" },
-    "group": { "word": "groep", "example": "We zijn een groep.", "exampleTranslation": "We are a group." },
-    "young": { "word": "jong", "example": "De kat is jong.", "exampleTranslation": "The cat is young." },
-    "white": { "word": "wit", "example": "De muur is wit.", "exampleTranslation": "The wall is white." },
-    "so that": { "word": "zodat", "example": "Ik leer hard zodat ik het snap.", "exampleTranslation": "I study hard so that I understand it." },
-    "laugh": { "word": "lachen", "example": "We lachen veel.", "exampleTranslation": "We laugh a lot." },
-    "bed": { "word": "bed", "example": "Ik lig in bed.", "exampleTranslation": "I am lying in bed." },
-    "further": { "word": "verder", "example": "We gaan verder.", "exampleTranslation": "We continue." },
-    "moment": { "word": "moment", "example": "Een moment, alsjeblieft.", "exampleTranslation": "One moment, please." },
-    "state (condition)": { "word": "staat", "example": "Het huis is in goede staat.", "exampleTranslation": "The house is in good condition." },
-    "friend": { "word": "vriend", "example": "Hij is mijn vriend.", "exampleTranslation": "He is my friend." },
-    "week": { "word": "week", "example": "Ik werk vijf dagen per week.", "exampleTranslation": "I work five days a week." },
-    "last": { "word": "laatste", "example": "Dit is de laatste koek.", "exampleTranslation": "This is the last cookie." },
-    "to help": { "word": "helpen", "example": "Kun je me helpen?", "exampleTranslation": "Can you help me?" },
-    "light (illumination)": { "word": "licht", "example": "Doe het licht aan.", "exampleTranslation": "Turn on the light." },
-    "deep": { "word": "diep", "example": "Het water is diep.", "exampleTranslation": "The water is deep." },
-    "night": { "word": "nacht", "example": "Het is nacht. Ik slaap.", "exampleTranslation": "It is night. I am sleeping." },
-    "along": { "word": "langs", "example": "Ik loop langs de rivier.", "exampleTranslation": "I walk along the river." },
-    "both": { "word": "beide", "example": "Beide zijn goed.", "exampleTranslation": "Both are good." },
-    "you (plural)": { "word": "jullie", "example": "Zijn jullie klaar?", "exampleTranslation": "Are you all ready?" },
-    "free (at liberty / not busy)": { "word": "vrij", "example": "Ben je vrij morgen?", "exampleTranslation": "Are you free tomorrow?" },
-    "feeling / sentiment": { "word": "gevoel", "example": "Ik heb een goed gevoel.", "exampleTranslation": "I have a good feeling." },
-    "feeling (physical sensation)": { "word": "voel", "example": "Ik voel de zon.", "exampleTranslation": "I feel the sun." },
-    "table": { "word": "tafel", "example": "De tafel is groot.", "exampleTranslation": "The table is big." },
-    "school": { "word": "school", "example": "Ik ga elke dag naar school.", "exampleTranslation": "I go to school every day." },
-    "four": { "word": "vier", "example": "Ik heb vier stoelen.", "exampleTranslation": "I have four chairs." },
-    "death": { "word": "dood", "example": "Hij is niet bang voor de dood.", "exampleTranslation": "He is not afraid of death." },
-    "social": { "word": "sociaal", "example": "Ze is erg sociaal.", "exampleTranslation": "She is very social." },
-    "hard / difficult": { "word": "moeilijk", "example": "Dit is moeilijk voor mij.", "exampleTranslation": "This is hard for me." },
-    "easy": { "word": "makkelijk", "example": "Dat is makkelijk.", "exampleTranslation": "That is easy." },
-    "month": { "word": "maand", "example": "Januari is de eerste maand.", "exampleTranslation": "January is the first month." },
-    "mouth": { "word": "mond", "example": "Open je mond.", "exampleTranslation": "Open your mouth." },
-    "reason": { "word": "reden", "example": "Wat is de reden?", "exampleTranslation": "What is the reason?" },
-    "foot": { "word": "voet", "example": "Mijn voet doet pijn.", "exampleTranslation": "My foot hurts." },
-    "idea": { "word": "idee", "example": "Dat is een goed idee.", "exampleTranslation": "That is a good idea." },
-    "role": { "word": "rol", "example": "Wat is jouw rol?", "exampleTranslation": "What is your role?" },
-    "answer": { "word": "antwoord", "example": "Ik weet het antwoord.", "exampleTranslation": "I know the answer." },
-    "to sleep": { "word": "slapen", "example": "Ik slaap acht uur per nacht.", "exampleTranslation": "I sleep eight hours a night." },
-    "to walk": { "word": "lopen", "example": "Ik loop elke dag.", "exampleTranslation": "I walk every day." },
-    "to play": { "word": "spelen", "example": "De kinderen spelen buiten.", "exampleTranslation": "The children play outside." },
-    "plan": { "word": "plan", "example": "Ik heb een plan.", "exampleTranslation": "I have a plan." },
-    "mostly": { "word": "meestal", "example": "Ik eet meestal thuis.", "exampleTranslation": "I mostly eat at home." },
-    "street": { "word": "straat", "example": "Wij wonen op dezelfde straat.", "exampleTranslation": "We live on the same street." },
-    "person": { "word": "persoon", "example": "Hij is een aardige persoon.", "exampleTranslation": "He is a nice person." },
-    "shoulder": { "word": "schouder", "example": "Mijn schouder doet pijn.", "exampleTranslation": "My shoulder hurts." },
-    "to listen": { "word": "luisteren", "example": "Luister naar mij.", "exampleTranslation": "Listen to me." },
-    "cash": { "word": "contant", "example": "Betaal je contant?", "exampleTranslation": "Are you paying cash?" },
-    "money": { "word": "geld", "example": "Ik heb geen geld.", "exampleTranslation": "I have no money." },
-    "Monday": { "word": "maandag", "example": "Ik werk op maandag.", "exampleTranslation": "I work on Monday." },
-    "Tuesday": { "word": "dinsdag", "example": "We eten buiten op dinsdag.", "exampleTranslation": "We eat out on Tuesday." },
-    "Wednesday": { "word": "woensdag", "example": "Woensdag is mijn vrije dag.", "exampleTranslation": "Wednesday is my day off." },
-    "Thursday": { "word": "donderdag", "example": "De vergadering is op donderdag.", "exampleTranslation": "The meeting is on Thursday." },
-    "Friday": { "word": "vrijdag", "example": "Vrijdag is mijn favoriete dag.", "exampleTranslation": "Friday is my favourite day." },
-    "Saturday": { "word": "zaterdag", "example": "Op zaterdag slaap ik langer.", "exampleTranslation": "On Saturday I sleep longer." },
-    "Sunday": { "word": "zondag", "example": "Op zondag rust ik uit.", "exampleTranslation": "On Sunday I rest." },
-    "zero": { "word": "nul", "example": "Het is nul graden buiten.", "exampleTranslation": "It is zero degrees outside." },
-    "one": { "word": "één", "example": "Ik heb één broer.", "exampleTranslation": "I have one brother." },
-    "five": { "word": "vijf", "example": "Ik heb vijf vingers per hand.", "exampleTranslation": "I have five fingers per hand." },
-    "six": { "word": "zes", "example": "We zijn met zes personen.", "exampleTranslation": "There are six of us." },
-    "seven": { "word": "zeven", "example": "De week heeft zeven dagen.", "exampleTranslation": "The week has seven days." },
-    "eight": { "word": "acht", "example": "Ik slaap acht uur per nacht.", "exampleTranslation": "I sleep eight hours a night." },
-    "nine": { "word": "negen", "example": "De winkel opent om negen uur.", "exampleTranslation": "The shop opens at nine o'clock." },
-    "influence": { "word": "invloed", "example": "Muziek heeft veel invloed op mij.", "exampleTranslation": "Music has a lot of influence on me." },
-    "heart": { "word": "hart", "example": "Mijn hart klopt snel.", "exampleTranslation": "My heart is beating fast." },
-    "son": { "word": "zoon", "example": "Hij is mijn enige zoon.", "exampleTranslation": "He is my only son." },
-    "busy": { "word": "bezig", "example": "Ik ben bezig met mijn werk.", "exampleTranslation": "I am busy with my work." },
-    "arm (body part)": { "word": "arm", "example": "Mijn arm doet pijn.", "exampleTranslation": "My arm hurts." },
-    "loose": { "word": "los", "example": "De schroef zit los.", "exampleTranslation": "The screw is loose." },
-    "minute": { "word": "minuut", "example": "Wacht één minuut, alsjeblieft.", "exampleTranslation": "Wait one minute, please." },
-    "love": { "word": "liefde", "example": "Ik heb veel liefde voor mijn familie.", "exampleTranslation": "I have a lot of love for my family." },
-    "some": { "word": "sommige", "example": "Sommige mensen houden van koffie.", "exampleTranslation": "Some people like coffee." },
-    "directly": { "word": "direct", "example": "Ga direct naar huis.", "exampleTranslation": "Go home directly." },
-    "relationship": { "word": "relatie", "example": "Wij hebben een goede relatie.", "exampleTranslation": "We have a good relationship." },
-    "system": { "word": "systeem", "example": "Het systeem werkt niet.", "exampleTranslation": "The system is not working." },
-    "process": { "word": "proces", "example": "Het is een lang proces.", "exampleTranslation": "It is a long process." },
-    "to mean (to genuinely think)": { "word": "menen", "example": "Ik meen het serieus.", "exampleTranslation": "I mean it seriously." },
-    "third": { "word": "derde", "example": "Dit is de derde keer.", "exampleTranslation": "This is the third time." },
-    "contact": { "word": "contact", "example": "Houd contact met je vrienden.", "exampleTranslation": "Keep in contact with your friends." },
-    "function": { "word": "functie", "example": "Wat is de functie van dit knopje?", "exampleTranslation": "What is the function of this button?" },
-    "warm": { "word": "warm", "example": "Het is warm buiten.", "exampleTranslation": "It is warm outside." },
-    "finger": { "word": "vinger", "example": "Ik heb me in mijn vinger gesneden.", "exampleTranslation": "I cut my finger." },
-    "color": { "word": "kleur", "example": "Wat is je lievelingskleur?", "exampleTranslation": "What is your favourite colour?" },
-    "pain": { "word": "pijn", "example": "Ik heb pijn in mijn rug.", "exampleTranslation": "I have pain in my back." },
-    "glass": { "word": "glas", "example": "Ik drink een glas water.", "exampleTranslation": "I drink a glass of water." },
-    "article": { "word": "artikel", "example": "Ik heb een interessant artikel gelezen.", "exampleTranslation": "I read an interesting article." },
-    "end": { "word": "eind", "example": "We zijn aan het eind van de straat.", "exampleTranslation": "We are at the end of the street." },
-    "personally": { "word": "persoonlijk", "example": "Ik ken hem persoonlijk.", "exampleTranslation": "I know him personally." },
-    "red": { "word": "rood", "example": "De roos is rood.", "exampleTranslation": "The rose is red." },
-    "doctor": { "word": "dokter", "example": "Ik ga naar de dokter.", "exampleTranslation": "I am going to the doctor." },
-    "sea": { "word": "zee", "example": "We gaan naar de zee.", "exampleTranslation": "We are going to the sea." },
-    "to grow": { "word": "groeien", "example": "De bloemen groeien snel.", "exampleTranslation": "The flowers grow quickly." },
-    "cold": { "word": "koud", "example": "Het is koud buiten.", "exampleTranslation": "It is cold outside." },
-    "to lead": { "word": "leiden", "example": "Hij leidt het team.", "exampleTranslation": "He leads the team." },
-    "family": { "word": "familie", "example": "Mijn familie is groot.", "exampleTranslation": "My family is big." },
-    "period": { "word": "periode", "example": "Dit is een moeilijke periode.", "exampleTranslation": "This is a difficult period." },
-    "since": { "word": "sinds", "example": "Ik woon hier sinds vorig jaar.", "exampleTranslation": "I have been living here since last year." },
-    "result": { "word": "resultaat", "example": "Het resultaat is goed.", "exampleTranslation": "The result is good." },
-    "normal": { "word": "normaal", "example": "Dat is normaal.", "exampleTranslation": "That is normal." },
-    "round": { "word": "rond", "example": "De tafel is rond.", "exampleTranslation": "The table is round." },
-    "organization": { "word": "organisatie", "example": "Hij werkt voor een grote organisatie.", "exampleTranslation": "He works for a large organisation." },
-    "special": { "word": "speciaal", "example": "Dit is een speciale dag.", "exampleTranslation": "This is a special day." },
-    "patient (noun)": { "word": "patiënt", "example": "De dokter helpt de patiënt.", "exampleTranslation": "The doctor helps the patient." },
-    "brother": { "word": "broer", "example": "Ik heb één broer.", "exampleTranslation": "I have one brother." },
-    "to deliver": { "word": "leveren", "example": "De winkel levert het pakket morgen.", "exampleTranslation": "The shop delivers the package tomorrow." },
-    "to hope": { "word": "hopen", "example": "Ik hoop dat het goed gaat.", "exampleTranslation": "I hope things are going well." },
-    "total": { "word": "totaal", "example": "Het totaal is twintig euro.", "exampleTranslation": "The total is twenty euros." },
-    "blue": { "word": "blauw", "example": "De lucht is blauw.", "exampleTranslation": "The sky is blue." }
+    "Year": {
+        "word": [
+            "Jaar"
+        ],
+        "example": "Ik ben 20 jaar oud.",
+        "exampleTranslation": "I am 20 years old."
+    },
+    "Here": {
+        "word": [
+            "Hier"
+        ],
+        "example": "Ik woon hier.",
+        "exampleTranslation": "I live here."
+    },
+    "We": {
+        "word": [
+            "Wij"
+        ],
+        "example": "Wij zijn vrienden.",
+        "exampleTranslation": "We are friends."
+    },
+    "To keep": {
+        "word": [
+            "Houden"
+        ],
+        "example": "Je mag het houden.",
+        "exampleTranslation": "You may keep it."
+    },
+    "To sit": {
+        "word": [
+            "zitten"
+        ],
+        "example": "Ik zit op een stoel.",
+        "exampleTranslation": "I am sitting on a chair."
+    },
+    "Hand": {
+        "word": [
+            "hand"
+        ],
+        "example": "Ik was mijn handen.",
+        "exampleTranslation": "I wash my hands."
+    },
+    "Long": {
+        "word": [
+            "lang"
+        ],
+        "example": "De tafel is lang.",
+        "exampleTranslation": "The table is long."
+    },
+    "Two": {
+        "word": [
+            "twee"
+        ],
+        "example": "Ik heb twee katten.",
+        "exampleTranslation": "I have two cats."
+    },
+    "Day": {
+        "word": [
+            "dag"
+        ],
+        "example": "Het is een mooie dag.",
+        "exampleTranslation": "It is a beautiful day."
+    },
+    "First": {
+        "word": [
+            "eerst"
+        ],
+        "example": "Eerst eten, dan spelen.",
+        "exampleTranslation": "First eat, then play."
+    },
+    "only": {
+        "word": [
+            "alleen"
+        ],
+        "example": "Ik ben alleen thuis.",
+        "exampleTranslation": "I am home alone."
+    },
+    "to bring": {
+        "word": [
+            "brengen"
+        ],
+        "example": "Ik breng je een glas water.",
+        "exampleTranslation": "I bring you a glass of water."
+    },
+    "to begin": {
+        "word": [
+            "beginnen"
+        ],
+        "example": "De les begint nu.",
+        "exampleTranslation": "The lesson starts now."
+    },
+    "self": {
+        "word": [
+            "zelf"
+        ],
+        "example": "Ik doe het zelf.",
+        "exampleTranslation": "I do it myself."
+    },
+    "to hear": {
+        "word": [
+            "horen"
+        ],
+        "example": "Ik hoor muziek.",
+        "exampleTranslation": "I hear music."
+    },
+    "new": {
+        "word": [
+            "nieuw"
+        ],
+        "example": "Ik heb een nieuwe tas.",
+        "exampleTranslation": "I have a new bag."
+    },
+    "late": {
+        "word": [
+            "laat"
+        ],
+        "example": "Het is laat. Ik ga slapen.",
+        "exampleTranslation": "It is late. I am going to sleep."
+    },
+    "to feel": {
+        "word": [
+            "voelen"
+        ],
+        "example": "Ik voel me goed.",
+        "exampleTranslation": "I feel good."
+    },
+    "place": {
+        "word": [
+            "plaats"
+        ],
+        "example": "Dit is een mooie plaats.",
+        "exampleTranslation": "This is a beautiful place."
+    },
+    "life": {
+        "word": [
+            "leven"
+        ],
+        "example": "Het leven is goed.",
+        "exampleTranslation": "Life is good."
+    },
+    "house": {
+        "word": [
+            "huis"
+        ],
+        "example": "Mijn huis is klein.",
+        "exampleTranslation": "My house is small."
+    },
+    "home": {
+        "word": [
+            "thuis"
+        ],
+        "example": "Ik ben thuis.",
+        "exampleTranslation": "I am home."
+    },
+    "to fall": {
+        "word": [
+            "vallen"
+        ],
+        "example": "De appel valt op de grond.",
+        "exampleTranslation": "The apple falls on the ground."
+    },
+    "mother": {
+        "word": [
+            "moeder"
+        ],
+        "example": "Mijn moeder is lief.",
+        "exampleTranslation": "My mother is kind."
+    },
+    "to speak": {
+        "word": [
+            "spreken"
+        ],
+        "example": "Ik spreek Nederlands.",
+        "exampleTranslation": "I speak Dutch."
+    },
+    "word": {
+        "word": [
+            "woord"
+        ],
+        "example": "Dat is een nieuw woord.",
+        "exampleTranslation": "That is a new word."
+    },
+    "when": {
+        "word": [
+            "wanner"
+        ],
+        "example": "Wanneer kom je?",
+        "exampleTranslation": "When are you coming?"
+    },
+    "father": {
+        "word": [
+            "vader"
+        ],
+        "example": "Mijn vader is groot.",
+        "exampleTranslation": "My father is tall."
+    },
+    "work": {
+        "word": [
+            "werk"
+        ],
+        "example": "Ik heb veel werk.",
+        "exampleTranslation": "I have a lot of work."
+    },
+    "to work": {
+        "word": [
+            "werken"
+        ],
+        "example": "Ik werk in een winkel.",
+        "exampleTranslation": "I work in a shop."
+    },
+    "each": {
+        "word": [
+            "elk"
+        ],
+        "example": "Elk kind heeft een boek.",
+        "exampleTranslation": "Every child has a book."
+    },
+    "far": {
+        "word": [
+            "ver"
+        ],
+        "example": "De school is niet ver.",
+        "exampleTranslation": "The school is not far."
+    },
+    "later": {
+        "word": [
+            "later"
+        ],
+        "example": "Ik kom later.",
+        "exampleTranslation": "I will come later."
+    },
+    "to tell": {
+        "word": [
+            "vertellen"
+        ],
+        "example": "Vertel me je naam.",
+        "exampleTranslation": "Tell me your name."
+    },
+    "three": {
+        "word": [
+            "drie"
+        ],
+        "example": "Ik heb drie broers.",
+        "exampleTranslation": "I have three brothers."
+    },
+    "old": {
+        "word": [
+            "oud"
+        ],
+        "example": "Hoe oud ben je?",
+        "exampleTranslation": "How old are you?"
+    },
+    "sometimes": {
+        "word": [
+            "soms"
+        ],
+        "example": "Soms regent het.",
+        "exampleTranslation": "Sometimes it rains."
+    },
+    "world": {
+        "word": [
+            "wereld"
+        ],
+        "example": "De wereld is groot.",
+        "exampleTranslation": "The world is large."
+    },
+    "hour": {
+        "word": [
+            "uur"
+        ],
+        "example": "Het is drie uur.",
+        "exampleTranslation": "It is three o'clock."
+    },
+    "kind": {
+        "word": [
+            "soort"
+        ],
+        "context": "type/sort",
+        "example": "Wat voor soort eten is dit?",
+        "exampleTranslation": "What kind of food is this?"
+    },
+    "full": {
+        "word": [
+            "vol"
+        ],
+        "example": "Het glas is vol.",
+        "exampleTranslation": "The glass is full."
+    },
+    "which": {
+        "word": [
+            "welk"
+        ],
+        "example": "Welk boek wil je?",
+        "exampleTranslation": "Which book do you want?"
+    },
+    "door": {
+        "word": [
+            "deur"
+        ],
+        "example": "De deur is open.",
+        "exampleTranslation": "The door is open."
+    },
+    "thing": {
+        "word": [
+            "ding"
+        ],
+        "example": "Wat is dat ding?",
+        "exampleTranslation": "What is that thing?"
+    },
+    "too / too much": {
+        "word": [
+            "te"
+        ],
+        "example": "Het is te warm.",
+        "exampleTranslation": "It is too warm."
+    },
+    "too / also": {
+        "word": [
+            "ook"
+        ],
+        "example": "Ik wil ook een koekje.",
+        "exampleTranslation": "I also want a cookie."
+    },
+    "on": {
+        "word": [
+            "op"
+        ],
+        "example": "De kat zit op de tafel.",
+        "exampleTranslation": "The cat sits on the table."
+    },
+    "that": {
+        "word": [
+            "dat"
+        ],
+        "example": "Ik weet dat.",
+        "exampleTranslation": "I know that."
+    },
+    "before / for": {
+        "word": [
+            "voor"
+        ],
+        "example": "Dit is voor jou.",
+        "exampleTranslation": "This is for you."
+    },
+    "there": {
+        "word": [
+            "daar"
+        ],
+        "context": "that place",
+        "example": "De winkel is daar.",
+        "exampleTranslation": "The shop is there."
+    },
+    "shall": {
+        "word": [
+            "zullen"
+        ],
+        "example": "Zullen we gaan?",
+        "exampleTranslation": "Shall we go?"
+    },
+    "can / to be able to": {
+        "word": [
+            "kunnen"
+        ],
+        "example": "Kun je me helpen?",
+        "exampleTranslation": "Can you help me?"
+    },
+    "her": {
+        "word": [
+            "haar"
+        ],
+        "context": "pronoun",
+        "example": "Dit is haar boek.",
+        "exampleTranslation": "This is her book."
+    },
+    "to go": {
+        "word": [
+            "gaan"
+        ],
+        "example": "Ik ga naar school.",
+        "exampleTranslation": "I am going to school."
+    },
+    "him": {
+        "word": [
+            "hem"
+        ],
+        "example": "Ik zie hem.",
+        "exampleTranslation": "I see him."
+    },
+    "to come": {
+        "word": [
+            "komen"
+        ],
+        "example": "Kom je naar het feest?",
+        "exampleTranslation": "Are you coming to the party?"
+    },
+    "then": {
+        "word": [
+            "dan"
+        ],
+        "example": "Eerst eten, dan slapen.",
+        "exampleTranslation": "First eat, then sleep."
+    },
+    "so": {
+        "word": [
+            "zo"
+        ],
+        "example": "Het is niet zo koud.",
+        "exampleTranslation": "It is not that cold."
+    },
+    "must / should": {
+        "word": [
+            "moeten"
+        ],
+        "example": "Ik moet nu gaan.",
+        "exampleTranslation": "I must go now."
+    },
+    "she": {
+        "word": [
+            "zij"
+        ],
+        "example": "Zij is mijn zus.",
+        "exampleTranslation": "She is my sister."
+    },
+    "this": {
+        "word": [
+            "deze"
+        ],
+        "example": "Deze appel is lekker.",
+        "exampleTranslation": "This apple is delicious."
+    },
+    "more": {
+        "word": [
+            "meer"
+        ],
+        "context": "quantity",
+        "example": "Ik wil meer water.",
+        "exampleTranslation": "I want more water."
+    },
+    "to make": {
+        "word": [
+            "maken"
+        ],
+        "example": "Ik maak een tekening.",
+        "exampleTranslation": "I am making a drawing."
+    },
+    "to stand": {
+        "word": [
+            "staan"
+        ],
+        "example": "Ik sta bij de deur.",
+        "exampleTranslation": "I am standing by the door."
+    },
+    "other": {
+        "word": [
+            "ander"
+        ],
+        "example": "Geef me de andere pen.",
+        "exampleTranslation": "Give me the other pen."
+    },
+    "to do": {
+        "word": [
+            "doen"
+        ],
+        "example": "Wat doe je?",
+        "exampleTranslation": "What are you doing?"
+    },
+    "to let / to leave": {
+        "word": [
+            "laten"
+        ],
+        "example": "Laat me slapen.",
+        "exampleTranslation": "Let me sleep."
+    },
+    "already": {
+        "word": [
+            "al"
+        ],
+        "example": "Ik heb al gegeten.",
+        "exampleTranslation": "I have already eaten."
+    },
+    "there is / there are": {
+        "word": [
+            "er"
+        ],
+        "context": "existence",
+        "example": "Er is een kat in de tuin.",
+        "exampleTranslation": "There is a cat in the garden."
+    },
+    "to think": {
+        "word": [
+            "denken"
+        ],
+        "example": "Ik denk het ook.",
+        "exampleTranslation": "I think so too."
+    },
+    "back then": {
+        "word": [
+            "toen"
+        ],
+        "context": "past",
+        "example": "Toen was ik klein.",
+        "exampleTranslation": "Back then I was small."
+    },
+    "to give": {
+        "word": [
+            "geven"
+        ],
+        "example": "Ik geef je een boek.",
+        "exampleTranslation": "I give you a book."
+    },
+    "how": {
+        "word": [
+            "hoe"
+        ],
+        "example": "Hoe gaat het?",
+        "exampleTranslation": "How are you?"
+    },
+    "to find": {
+        "word": [
+            "vinden"
+        ],
+        "example": "Ik vind het leuk.",
+        "exampleTranslation": "I like it."
+    },
+    "fact": {
+        "word": [
+            "feit"
+        ],
+        "example": "Dat is een feit.",
+        "exampleTranslation": "That is a fact."
+    },
+    "to wait": {
+        "word": [
+            "wachten"
+        ],
+        "example": "Ik wacht op jou.",
+        "exampleTranslation": "I am waiting for you."
+    },
+    "to learn": {
+        "word": [
+            "leren"
+        ],
+        "context": "not to teach",
+        "example": "Ik leer Nederlands.",
+        "exampleTranslation": "I am learning Dutch."
+    },
+    "open": {
+        "word": [
+            "open"
+        ],
+        "example": "De deur is open.",
+        "exampleTranslation": "The door is open."
+    },
+    "problem": {
+        "word": [
+            "probleem"
+        ],
+        "example": "Geen probleem!",
+        "exampleTranslation": "No problem!"
+    },
+    "group": {
+        "word": [
+            "groep"
+        ],
+        "example": "We zijn een groep.",
+        "exampleTranslation": "We are a group."
+    },
+    "young": {
+        "word": [
+            "jong"
+        ],
+        "example": "De kat is jong.",
+        "exampleTranslation": "The cat is young."
+    },
+    "white": {
+        "word": [
+            "wit"
+        ],
+        "example": "De muur is wit.",
+        "exampleTranslation": "The wall is white."
+    },
+    "so that": {
+        "word": [
+            "zodat"
+        ],
+        "example": "Ik leer hard zodat ik het snap.",
+        "exampleTranslation": "I study hard so that I understand it."
+    },
+    "laugh": {
+        "word": [
+            "lachen"
+        ],
+        "example": "We lachen veel.",
+        "exampleTranslation": "We laugh a lot."
+    },
+    "bed": {
+        "word": [
+            "bed"
+        ],
+        "example": "Ik lig in bed.",
+        "exampleTranslation": "I am lying in bed."
+    },
+    "further": {
+        "word": [
+            "verder"
+        ],
+        "example": "We gaan verder.",
+        "exampleTranslation": "We continue."
+    },
+    "moment": {
+        "word": [
+            "moment"
+        ],
+        "example": "Een moment, alsjeblieft.",
+        "exampleTranslation": "One moment, please."
+    },
+    "state": {
+        "word": [
+            "staat"
+        ],
+        "context": "condition",
+        "example": "Het huis is in goede staat.",
+        "exampleTranslation": "The house is in good condition."
+    },
+    "friend": {
+        "word": [
+            "vriend"
+        ],
+        "example": "Hij is mijn vriend.",
+        "exampleTranslation": "He is my friend."
+    },
+    "week": {
+        "word": [
+            "week"
+        ],
+        "example": "Ik werk vijf dagen per week.",
+        "exampleTranslation": "I work five days a week."
+    },
+    "last": {
+        "word": [
+            "laatste"
+        ],
+        "example": "Dit is de laatste koek.",
+        "exampleTranslation": "This is the last cookie."
+    },
+    "to help": {
+        "word": [
+            "helpen"
+        ],
+        "example": "Kun je me helpen?",
+        "exampleTranslation": "Can you help me?"
+    },
+    "light": {
+        "word": [
+            "licht"
+        ],
+        "context": "illumination",
+        "example": "Doe het licht aan.",
+        "exampleTranslation": "Turn on the light."
+    },
+    "deep": {
+        "word": [
+            "diep"
+        ],
+        "example": "Het water is diep.",
+        "exampleTranslation": "The water is deep."
+    },
+    "night": {
+        "word": [
+            "nacht"
+        ],
+        "example": "Het is nacht. Ik slaap.",
+        "exampleTranslation": "It is night. I am sleeping."
+    },
+    "along": {
+        "word": [
+            "langs"
+        ],
+        "example": "Ik loop langs de rivier.",
+        "exampleTranslation": "I walk along the river."
+    },
+    "both": {
+        "word": [
+            "beide"
+        ],
+        "example": "Beide zijn goed.",
+        "exampleTranslation": "Both are good."
+    },
+    "you": {
+        "word": [
+            "jij",
+            "je",
+            "u",
+            "jou"
+        ],
+        "context": "singular",
+        "example": "Jij bent mijn beste vriend.",
+        "exampleTranslation": "You are my best friend."
+    },
+    "free": {
+        "word": [
+            "vrij"
+        ],
+        "context": "at liberty / not busy",
+        "example": "Ben je vrij morgen?",
+        "exampleTranslation": "Are you free tomorrow?"
+    },
+    "feeling": {
+        "word": [
+            "gevoel"
+        ],
+        "context": "sentiment",
+        "example": "Ik heb een goed gevoel.",
+        "exampleTranslation": "I have a good feeling."
+    },
+    "table": {
+        "word": [
+            "tafel"
+        ],
+        "example": "De tafel is groot.",
+        "exampleTranslation": "The table is big."
+    },
+    "school": {
+        "word": [
+            "school"
+        ],
+        "example": "Ik ga elke dag naar school.",
+        "exampleTranslation": "I go to school every day."
+    },
+    "four": {
+        "word": [
+            "vier"
+        ],
+        "example": "Ik heb vier stoelen.",
+        "exampleTranslation": "I have four chairs."
+    },
+    "death": {
+        "word": [
+            "dood"
+        ],
+        "context": "noun",
+        "example": "Hij is niet bang voor de dood.",
+        "exampleTranslation": "He is not afraid of death."
+    },
+    "social": {
+        "word": [
+            "sociaal"
+        ],
+        "example": "Ze is erg sociaal.",
+        "exampleTranslation": "She is very social."
+    },
+    "hard / difficult": {
+        "word": [
+            "moeilijk"
+        ],
+        "example": "Dit is moeilijk voor mij.",
+        "exampleTranslation": "This is hard for me."
+    },
+    "easy": {
+        "word": [
+            "makkelijk"
+        ],
+        "example": "Dat is makkelijk.",
+        "exampleTranslation": "That is easy."
+    },
+    "month": {
+        "word": [
+            "maand"
+        ],
+        "example": "Januari is de eerste maand.",
+        "exampleTranslation": "January is the first month."
+    },
+    "mouth": {
+        "word": [
+            "mond"
+        ],
+        "example": "Open je mond.",
+        "exampleTranslation": "Open your mouth."
+    },
+    "reason": {
+        "word": [
+            "reden"
+        ],
+        "example": "Wat is de reden?",
+        "exampleTranslation": "What is the reason?"
+    },
+    "foot": {
+        "word": [
+            "voet"
+        ],
+        "example": "Mijn voet doet pijn.",
+        "exampleTranslation": "My foot hurts."
+    },
+    "idea": {
+        "word": [
+            "idee"
+        ],
+        "example": "Dat is een goed idee.",
+        "exampleTranslation": "That is a good idea."
+    },
+    "role": {
+        "word": [
+            "rol"
+        ],
+        "example": "Wat is jouw rol?",
+        "exampleTranslation": "What is your role?"
+    },
+    "answer": {
+        "word": [
+            "antwoord"
+        ],
+        "example": "Ik weet het antwoord.",
+        "exampleTranslation": "I know the answer."
+    },
+    "to sleep": {
+        "word": [
+            "slapen"
+        ],
+        "example": "Ik slaap acht uur per nacht.",
+        "exampleTranslation": "I sleep eight hours a night."
+    },
+    "to walk": {
+        "word": [
+            "lopen"
+        ],
+        "example": "Ik loop elke dag.",
+        "exampleTranslation": "I walk every day."
+    },
+    "to play": {
+        "word": [
+            "spelen"
+        ],
+        "example": "De kinderen spelen buiten.",
+        "exampleTranslation": "The children play outside."
+    },
+    "plan": {
+        "word": [
+            "plan"
+        ],
+        "example": "Ik heb een plan.",
+        "exampleTranslation": "I have a plan."
+    },
+    "mostly": {
+        "word": [
+            "meestal"
+        ],
+        "example": "Ik eet meestal thuis.",
+        "exampleTranslation": "I mostly eat at home."
+    },
+    "street": {
+        "word": [
+            "straat"
+        ],
+        "example": "Wij wonen op dezelfde straat.",
+        "exampleTranslation": "We live on the same street."
+    },
+    "person": {
+        "word": [
+            "persoon"
+        ],
+        "example": "Hij is een aardige persoon.",
+        "exampleTranslation": "He is a nice person."
+    },
+    "shoulder": {
+        "word": [
+            "schouder"
+        ],
+        "example": "Mijn schouder doet pijn.",
+        "exampleTranslation": "My shoulder hurts."
+    },
+    "to listen": {
+        "word": [
+            "luisteren"
+        ],
+        "example": "Luister naar mij.",
+        "exampleTranslation": "Listen to me."
+    },
+    "cash": {
+        "word": [
+            "contant"
+        ],
+        "example": "Betaal je contant?",
+        "exampleTranslation": "Are you paying cash?"
+    },
+    "money": {
+        "word": [
+            "geld"
+        ],
+        "example": "Ik heb geen geld.",
+        "exampleTranslation": "I have no money."
+    },
+    "Monday": {
+        "word": [
+            "maandag"
+        ],
+        "example": "Ik werk op maandag.",
+        "exampleTranslation": "I work on Monday."
+    },
+    "Tuesday": {
+        "word": [
+            "dinsdag"
+        ],
+        "example": "We eten buiten op dinsdag.",
+        "exampleTranslation": "We eat out on Tuesday."
+    },
+    "Wednesday": {
+        "word": [
+            "woensdag"
+        ],
+        "example": "Woensdag is mijn vrije dag.",
+        "exampleTranslation": "Wednesday is my day off."
+    },
+    "Thursday": {
+        "word": [
+            "donderdag"
+        ],
+        "example": "De vergadering is op donderdag.",
+        "exampleTranslation": "The meeting is on Thursday."
+    },
+    "Friday": {
+        "word": [
+            "vrijdag"
+        ],
+        "example": "Vrijdag is mijn favoriete dag.",
+        "exampleTranslation": "Friday is my favourite day."
+    },
+    "Saturday": {
+        "word": [
+            "zaterdag"
+        ],
+        "example": "Op zaterdag slaap ik langer.",
+        "exampleTranslation": "On Saturday I sleep longer."
+    },
+    "Sunday": {
+        "word": [
+            "zondag"
+        ],
+        "example": "Op zondag rust ik uit.",
+        "exampleTranslation": "On Sunday I rest."
+    },
+    "zero": {
+        "word": [
+            "nul"
+        ],
+        "example": "Het is nul graden buiten.",
+        "exampleTranslation": "It is zero degrees outside."
+    },
+    "one": {
+        "word": [
+            "één"
+        ],
+        "example": "Ik heb één broer.",
+        "exampleTranslation": "I have one brother."
+    },
+    "five": {
+        "word": [
+            "vijf"
+        ],
+        "example": "Ik heb vijf vingers per hand.",
+        "exampleTranslation": "I have five fingers per hand."
+    },
+    "six": {
+        "word": [
+            "zes"
+        ],
+        "example": "We zijn met zes personen.",
+        "exampleTranslation": "There are six of us."
+    },
+    "seven": {
+        "word": [
+            "zeven"
+        ],
+        "example": "De week heeft zeven dagen.",
+        "exampleTranslation": "The week has seven days."
+    },
+    "eight": {
+        "word": [
+            "acht"
+        ],
+        "example": "Ik slaap acht uur per nacht.",
+        "exampleTranslation": "I sleep eight hours a night."
+    },
+    "nine": {
+        "word": [
+            "negen"
+        ],
+        "example": "De winkel opent om negen uur.",
+        "exampleTranslation": "The shop opens at nine o'clock."
+    },
+    "influence": {
+        "word": [
+            "invloed"
+        ],
+        "example": "Muziek heeft veel invloed op mij.",
+        "exampleTranslation": "Music has a lot of influence on me."
+    },
+    "heart": {
+        "word": [
+            "hart"
+        ],
+        "example": "Mijn hart klopt snel.",
+        "exampleTranslation": "My heart is beating fast."
+    },
+    "son": {
+        "word": [
+            "zoon"
+        ],
+        "example": "Hij is mijn enige zoon.",
+        "exampleTranslation": "He is my only son."
+    },
+    "busy": {
+        "word": [
+            "bezig"
+        ],
+        "example": "Ik ben bezig met mijn werk.",
+        "exampleTranslation": "I am busy with my work."
+    },
+    "arm": {
+        "word": [
+            "arm"
+        ],
+        "context": "body part",
+        "example": "Mijn arm doet pijn.",
+        "exampleTranslation": "My arm hurts."
+    },
+    "loose": {
+        "word": [
+            "los"
+        ],
+        "example": "De schroef zit los.",
+        "exampleTranslation": "The screw is loose."
+    },
+    "minute": {
+        "word": [
+            "minuut"
+        ],
+        "example": "Wacht één minuut, alsjeblieft.",
+        "exampleTranslation": "Wait one minute, please."
+    },
+    "love": {
+        "word": [
+            "liefde"
+        ],
+        "example": "Ik heb veel liefde voor mijn familie.",
+        "exampleTranslation": "I have a lot of love for my family."
+    },
+    "some": {
+        "word": [
+            "sommige"
+        ],
+        "example": "Sommige mensen houden van koffie.",
+        "exampleTranslation": "Some people like coffee."
+    },
+    "directly": {
+        "word": [
+            "direct"
+        ],
+        "example": "Ga direct naar huis.",
+        "exampleTranslation": "Go home directly."
+    },
+    "relationship": {
+        "word": [
+            "relatie"
+        ],
+        "example": "Wij hebben een goede relatie.",
+        "exampleTranslation": "We have a good relationship."
+    },
+    "system": {
+        "word": [
+            "systeem"
+        ],
+        "example": "Het systeem werkt niet.",
+        "exampleTranslation": "The system is not working."
+    },
+    "process": {
+        "word": [
+            "proces"
+        ],
+        "example": "Het is een lang proces.",
+        "exampleTranslation": "It is a long process."
+    },
+    "to mean": {
+        "word": [
+            "menen"
+        ],
+        "context": "to genuinely think",
+        "example": "Ik meen het serieus.",
+        "exampleTranslation": "I mean it seriously."
+    },
+    "third": {
+        "word": [
+            "derde"
+        ],
+        "example": "Dit is de derde keer.",
+        "exampleTranslation": "This is the third time."
+    },
+    "contact": {
+        "word": [
+            "contact"
+        ],
+        "example": "Houd contact met je vrienden.",
+        "exampleTranslation": "Keep in contact with your friends."
+    },
+    "function": {
+        "word": [
+            "functie"
+        ],
+        "example": "Wat is de functie van dit knopje?",
+        "exampleTranslation": "What is the function of this button?"
+    },
+    "warm": {
+        "word": [
+            "warm"
+        ],
+        "example": "Het is warm buiten.",
+        "exampleTranslation": "It is warm outside."
+    },
+    "finger": {
+        "word": [
+            "vinger"
+        ],
+        "example": "Ik heb me in mijn vinger gesneden.",
+        "exampleTranslation": "I cut my finger."
+    },
+    "color": {
+        "word": [
+            "kleur"
+        ],
+        "example": "Wat is je lievelingskleur?",
+        "exampleTranslation": "What is your favourite colour?"
+    },
+    "pain": {
+        "word": [
+            "pijn"
+        ],
+        "example": "Ik heb pijn in mijn rug.",
+        "exampleTranslation": "I have pain in my back."
+    },
+    "glass": {
+        "word": [
+            "glas"
+        ],
+        "example": "Ik drink een glas water.",
+        "exampleTranslation": "I drink a glass of water."
+    },
+    "article": {
+        "word": [
+            "artikel"
+        ],
+        "example": "Ik heb een interessant artikel gelezen.",
+        "exampleTranslation": "I read an interesting article."
+    },
+    "end": {
+        "word": [
+            "eind"
+        ],
+        "example": "We zijn aan het eind van de straat.",
+        "exampleTranslation": "We are at the end of the street."
+    },
+    "personally": {
+        "word": [
+            "persoonlijk"
+        ],
+        "example": "Ik ken hem persoonlijk.",
+        "exampleTranslation": "I know him personally."
+    },
+    "red": {
+        "word": [
+            "rood"
+        ],
+        "example": "De roos is rood.",
+        "exampleTranslation": "The rose is red."
+    },
+    "doctor": {
+        "word": [
+            "dokter"
+        ],
+        "example": "Ik ga naar de dokter.",
+        "exampleTranslation": "I am going to the doctor."
+    },
+    "sea": {
+        "word": [
+            "zee"
+        ],
+        "example": "We gaan naar de zee.",
+        "exampleTranslation": "We are going to the sea."
+    },
+    "to grow": {
+        "word": [
+            "groeien"
+        ],
+        "example": "De bloemen groeien snel.",
+        "exampleTranslation": "The flowers grow quickly."
+    },
+    "cold": {
+        "word": [
+            "koud"
+        ],
+        "example": "Het is koud buiten.",
+        "exampleTranslation": "It is cold outside."
+    },
+    "to lead": {
+        "word": [
+            "leiden"
+        ],
+        "example": "Hij leidt het team.",
+        "exampleTranslation": "He leads the team."
+    },
+    "family": {
+        "word": [
+            "familie"
+        ],
+        "example": "Mijn familie is groot.",
+        "exampleTranslation": "My family is big."
+    },
+    "period": {
+        "word": [
+            "periode"
+        ],
+        "example": "Dit is een moeilijke periode.",
+        "exampleTranslation": "This is a difficult period."
+    },
+    "since": {
+        "word": [
+            "sinds"
+        ],
+        "example": "Ik woon hier sinds vorig jaar.",
+        "exampleTranslation": "I have been living here since last year."
+    },
+    "result": {
+        "word": [
+            "resultaat"
+        ],
+        "example": "Het resultaat is goed.",
+        "exampleTranslation": "The result is good."
+    },
+    "normal": {
+        "word": [
+            "normaal"
+        ],
+        "example": "Dat is normaal.",
+        "exampleTranslation": "That is normal."
+    },
+    "round": {
+        "word": [
+            "rond"
+        ],
+        "example": "De tafel is rond.",
+        "exampleTranslation": "The table is round."
+    },
+    "organization": {
+        "word": [
+            "organisatie"
+        ],
+        "example": "Hij werkt voor een grote organisatie.",
+        "exampleTranslation": "He works for a large organisation."
+    },
+    "special": {
+        "word": [
+            "speciaal"
+        ],
+        "example": "Dit is een speciale dag.",
+        "exampleTranslation": "This is a special day."
+    },
+    "patient": {
+        "word": [
+            "patiënt"
+        ],
+        "context": "noun",
+        "example": "De dokter helpt de patiënt.",
+        "exampleTranslation": "The doctor helps the patient."
+    },
+    "brother": {
+        "word": [
+            "broer"
+        ],
+        "example": "Ik heb één broer.",
+        "exampleTranslation": "I have one brother."
+    },
+    "to deliver": {
+        "word": [
+            "leveren"
+        ],
+        "example": "De winkel levert het pakket morgen.",
+        "exampleTranslation": "The shop delivers the package tomorrow."
+    },
+    "to hope": {
+        "word": [
+            "hopen"
+        ],
+        "example": "Ik hoop dat het goed gaat.",
+        "exampleTranslation": "I hope things are going well."
+    },
+    "total": {
+        "word": [
+            "totaal"
+        ],
+        "example": "Het totaal is twintig euro.",
+        "exampleTranslation": "The total is twenty euros."
+    },
+    "blue": {
+        "word": [
+            "blauw"
+        ],
+        "example": "De lucht is blauw.",
+        "exampleTranslation": "The sky is blue."
+    },
+    "ten": {
+        "word": [
+            "tien"
+        ],
+        "example": "Ik heb tien vingers.",
+        "exampleTranslation": "I have ten fingers."
+    },
+    "to have": {
+        "word": [
+            "hebben"
+        ],
+        "example": "Wij hebben een hond.",
+        "exampleTranslation": "We have a dog."
+    },
+    "meal": {
+        "word": [
+            "maaltijd"
+        ],
+        "example": "De maaltijd was heerlijk.",
+        "exampleTranslation": "The meal was delicious."
+    },
+    "movie": {
+        "word": [
+            "film"
+        ],
+        "example": "We gaan naar een film kijken.",
+        "exampleTranslation": "We are going to watch a movie."
+    },
+    "activity": {
+        "word": [
+            "activiteit"
+        ],
+        "example": "Zwemmen is mijn favoriete activiteit.",
+        "exampleTranslation": "Swimming is my favourite activity."
+    },
+    "luck": {
+        "word": [
+            "geluk"
+        ],
+        "example": "Wat een geluk!",
+        "exampleTranslation": "What luck!"
+    },
+    "practical": {
+        "word": [
+            "praktisch"
+        ],
+        "example": "Dat is een praktisch idee.",
+        "exampleTranslation": "That is a practical idea."
+    },
+    "conclusion": {
+        "word": [
+            "conclusie"
+        ],
+        "example": "De conclusie is duidelijk.",
+        "exampleTranslation": "The conclusion is clear."
+    },
+    "second": {
+        "word": [
+            "seconde"
+        ],
+        "context": "unit of time",
+        "example": "Wacht een seconde.",
+        "exampleTranslation": "Wait a second."
+    },
+    "class": {
+        "word": [
+            "klas"
+        ],
+        "example": "Er zijn twintig kinderen in de klas.",
+        "exampleTranslation": "There are twenty children in the class."
+    },
+    "the": {
+        "word": [
+            "de",
+            "het"
+        ],
+        "example": "De kat zit op het dak.",
+        "exampleTranslation": "The cat sits on the roof."
+    },
+    "and": {
+        "word": [
+            "en"
+        ],
+        "example": "Ik en jij zijn vrienden.",
+        "exampleTranslation": "You and I are friends."
+    },
+    "a": {
+        "word": [
+            "een"
+        ],
+        "example": "Ik heb een boek.",
+        "exampleTranslation": "I have a book."
+    },
+    "it": {
+        "word": [
+            "het"
+        ],
+        "example": "Het regent vandaag.",
+        "exampleTranslation": "It is raining today."
+    },
+    "in": {
+        "word": [
+            "in"
+        ],
+        "example": "De sleutels liggen in de la.",
+        "exampleTranslation": "The keys are in the drawer."
+    },
+    "I": {
+        "word": [
+            "ik"
+        ],
+        "example": "Ik ben blij.",
+        "exampleTranslation": "I am happy."
+    },
+    "he": {
+        "word": [
+            "hij"
+        ],
+        "example": "Hij leest een boek.",
+        "exampleTranslation": "He is reading a book."
+    },
+    "not": {
+        "word": [
+            "niet"
+        ],
+        "example": "Ik ben niet moe.",
+        "exampleTranslation": "I am not tired."
+    },
+    "or": {
+        "word": [
+            "of"
+        ],
+        "example": "Wil je thee of koffie?",
+        "exampleTranslation": "Do you want tea or coffee?"
+    },
+    "what": {
+        "word": [
+            "wat"
+        ],
+        "example": "Wat wil je eten?",
+        "exampleTranslation": "What do you want to eat?"
+    },
+    "my": {
+        "word": [
+            "mijn"
+        ],
+        "example": "Dit is mijn fiets.",
+        "exampleTranslation": "This is my bike."
+    },
+    "good": {
+        "word": [
+            "goed"
+        ],
+        "example": "Het eten is goed.",
+        "exampleTranslation": "The food is good."
+    },
+    "me": {
+        "word": [
+            "me",
+            "mij"
+        ],
+        "example": "Geef het aan mij.",
+        "exampleTranslation": "Give it to me."
+    },
+    "now": {
+        "word": [
+            "nu"
+        ],
+        "example": "Ik moet nu gaan.",
+        "exampleTranslation": "I have to go now."
+    },
+    "man": {
+        "word": [
+            "man"
+        ],
+        "example": "De man loopt op straat.",
+        "exampleTranslation": "The man walks on the street."
+    },
+    "yes": {
+        "word": [
+            "ja"
+        ],
+        "example": "Ja, ik kom morgen.",
+        "exampleTranslation": "Yes, I am coming tomorrow."
+    },
+    "name": {
+        "word": [
+            "naam"
+        ],
+        "example": "Wat is je naam?",
+        "exampleTranslation": "What is your name?"
+    },
+    "book": {
+        "word": [
+            "boek"
+        ],
+        "example": "Ik lees een goed boek.",
+        "exampleTranslation": "I am reading a good book."
+    },
+    "no": {
+        "word": [
+            "nee"
+        ],
+        "example": "Nee, dank je.",
+        "exampleTranslation": "No, thank you."
+    },
+    "water": {
+        "word": [
+            "water"
+        ],
+        "example": "Mag ik een glas water?",
+        "exampleTranslation": "May I have a glass of water?"
+    },
+    "half": {
+        "word": [
+            "half"
+        ],
+        "example": "Het is half drie.",
+        "exampleTranslation": "It is half past two."
+    },
+    "hard": {
+        "word": [
+            "hard"
+        ],
+        "context": "adjective / adverb",
+        "example": "Hij werkt hard.",
+        "exampleTranslation": "He works hard."
+    },
+    "wine": {
+        "word": [
+            "wijn"
+        ],
+        "example": "Wil je een glas wijn?",
+        "exampleTranslation": "Do you want a glass of wine?"
+    },
+    "to drink": {
+        "word": [
+            "drinken"
+        ],
+        "example": "Ik drink graag koffie.",
+        "exampleTranslation": "I like to drink coffee."
+    },
+    "step": {
+        "word": [
+            "stap"
+        ],
+        "context": "noun",
+        "example": "Dit is de eerste stap.",
+        "exampleTranslation": "This is the first step."
+    },
+    "character": {
+        "word": [
+            "karakter"
+        ],
+        "example": "Hij heeft een sterk karakter.",
+        "exampleTranslation": "He has a strong character."
+    },
+    "theory": {
+        "word": [
+            "theorie"
+        ],
+        "example": "De theorie klopt niet.",
+        "exampleTranslation": "The theory is not correct."
+    },
+    "blood": {
+        "word": [
+            "bloed"
+        ],
+        "example": "Er zit bloed op je hand.",
+        "exampleTranslation": "There is blood on your hand."
+    },
+    "better": {
+        "word": [
+            "beter"
+        ],
+        "example": "Vandaag voel ik me beter.",
+        "exampleTranslation": "Today I feel better."
+    },
+    "daughter": {
+        "word": [
+            "dochter"
+        ],
+        "example": "Mijn dochter is vijf jaar oud.",
+        "exampleTranslation": "My daughter is five years old."
+    },
+    "to step": {
+        "word": [
+            "stappen"
+        ],
+        "example": "We stappen uit de trein.",
+        "exampleTranslation": "We step out of the train."
+    },
+    "dream": {
+        "word": [
+            "droom"
+        ],
+        "context": "noun",
+        "example": "Ik had een mooie droom.",
+        "exampleTranslation": "I had a beautiful dream."
+    },
+    "meter": {
+        "word": [
+            "meter"
+        ],
+        "example": "De tafel is twee meter lang.",
+        "exampleTranslation": "The table is two meters long."
+    },
+    "stone": {
+        "word": [
+            "steen"
+        ],
+        "example": "Ik gooi een steen in het water.",
+        "exampleTranslation": "I throw a stone in the water."
+    },
+    "help": {
+        "word": [
+            "hulp"
+        ],
+        "context": "noun",
+        "example": "Ik heb hulp nodig.",
+        "exampleTranslation": "I need help."
+    },
+    "rest": {
+        "word": [
+            "rest"
+        ],
+        "context": "noun / remainder",
+        "example": "De rest is voor jou.",
+        "exampleTranslation": "The rest is for you."
+    },
+    "music": {
+        "word": [
+            "muziek"
+        ],
+        "example": "Ik luister graag naar muziek.",
+        "exampleTranslation": "I like to listen to music."
+    },
+    "to open": {
+        "word": [
+            "openen"
+        ],
+        "example": "Kun je de deur openen?",
+        "exampleTranslation": "Can you open the door?"
+    },
+    "bank": {
+        "word": [
+            "bank"
+        ],
+        "context": "financial institution",
+        "example": "Ik ga naar de bank.",
+        "exampleTranslation": "I am going to the bank."
+    },
+    "paper": {
+        "word": [
+            "papier"
+        ],
+        "example": "Heb je een stuk papier?",
+        "exampleTranslation": "Do you have a piece of paper?"
+    },
+    "hope": {
+        "word": [
+            "hoop"
+        ],
+        "context": "noun",
+        "example": "Er is altijd hoop.",
+        "exampleTranslation": "There is always hope."
+    },
+    "minister": {
+        "word": [
+            "minister"
+        ],
+        "example": "De minister spreekt vandaag.",
+        "exampleTranslation": "The minister speaks today."
+    },
+    "wind": {
+        "word": [
+            "wind"
+        ],
+        "example": "De wind waait hard.",
+        "exampleTranslation": "The wind blows hard."
+    },
+    "coffee": {
+        "word": [
+            "koffie"
+        ],
+        "example": "Wil je een kopje koffie?",
+        "exampleTranslation": "Do you want a cup of coffee?"
+    },
+    "to stop": {
+        "word": [
+            "stoppen"
+        ],
+        "example": "De bus stopt hier.",
+        "exampleTranslation": "The bus stops here."
+    },
+    "ear": {
+        "word": [
+            "oor"
+        ],
+        "example": "Mijn oor doet pijn.",
+        "exampleTranslation": "My ear hurts."
+    },
+    "information": {
+        "word": [
+            "informatie"
+        ],
+        "example": "Ik zoek meer informatie.",
+        "exampleTranslation": "I am looking for more information."
+    },
+    "method": {
+        "word": [
+            "methode"
+        ],
+        "example": "Deze methode werkt goed.",
+        "exampleTranslation": "This method works well."
+    },
+    "lip": {
+        "word": [
+            "lip"
+        ],
+        "example": "Mijn lip is droog.",
+        "exampleTranslation": "My lip is dry."
+    },
+    "position": {
+        "word": [
+            "positie"
+        ],
+        "example": "Wat is je positie in het bedrijf?",
+        "exampleTranslation": "What is your position in the company?"
+    },
+    "all": {
+        "word": [
+            "alle"
+        ],
+        "example": "Alle kinderen spelen buiten.",
+        "exampleTranslation": "All children play outside."
+    },
+    "enormous": {
+        "word": [
+            "enorm"
+        ],
+        "example": "Het huis is enorm groot.",
+        "exampleTranslation": "The house is enormously big."
+    },
+    "photo": {
+        "word": [
+            "foto"
+        ],
+        "example": "Mag ik een foto maken?",
+        "exampleTranslation": "May I take a photo?"
+    },
+    "modern": {
+        "word": [
+            "modern"
+        ],
+        "example": "Dit is een modern gebouw.",
+        "exampleTranslation": "This is a modern building."
+    },
+    "base": {
+        "word": [
+            "basis"
+        ],
+        "example": "Dit is de basis van het plan.",
+        "exampleTranslation": "This is the base of the plan."
+    },
+    "sister": {
+        "word": [
+            "zuster"
+        ],
+        "example": "Mijn zuster woont in Amsterdam.",
+        "exampleTranslation": "My sister lives in Amsterdam."
+    },
+    "awake": {
+        "word": [
+            "wakker"
+        ],
+        "example": "Ik ben al wakker.",
+        "exampleTranslation": "I am already awake."
+    },
+    "aunt": {
+        "word": [
+            "tante"
+        ],
+        "example": "Mijn tante komt morgen.",
+        "exampleTranslation": "My aunt is coming tomorrow."
+    },
+    "fire": {
+        "word": [
+            "vuur"
+        ],
+        "example": "Het vuur is warm.",
+        "exampleTranslation": "The fire is warm."
+    },
+    "price": {
+        "word": [
+            "prijs"
+        ],
+        "example": "Wat is de prijs?",
+        "exampleTranslation": "What is the price?"
+    },
+    "reaction": {
+        "word": [
+            "reactie"
+        ],
+        "example": "Zijn reactie was positief.",
+        "exampleTranslation": "His reaction was positive."
+    },
+    "practice": {
+        "word": [
+            "praktijk"
+        ],
+        "example": "In de praktijk is het anders.",
+        "exampleTranslation": "In practice it is different."
+    },
+    "nose": {
+        "word": [
+            "neus"
+        ],
+        "example": "Mijn neus is koud.",
+        "exampleTranslation": "My nose is cold."
+    },
+    "terrain": {
+        "word": [
+            "terrein"
+        ],
+        "example": "Het terrein is groot.",
+        "exampleTranslation": "The terrain is large."
+    },
+    "king": {
+        "word": [
+            "koning"
+        ],
+        "example": "De koning woont in het paleis.",
+        "exampleTranslation": "The king lives in the palace."
+    },
+    "to sing": {
+        "word": [
+            "zingen"
+        ],
+        "example": "Zij zingt een mooi lied.",
+        "exampleTranslation": "She sings a beautiful song."
+    },
+    "to fly": {
+        "word": [
+            "vliegen"
+        ],
+        "example": "De vogel vliegt hoog.",
+        "exampleTranslation": "The bird flies high."
+    },
+    "culture": {
+        "word": [
+            "cultuur"
+        ],
+        "example": "De Nederlandse cultuur is interessant.",
+        "exampleTranslation": "Dutch culture is interesting."
+    },
+    "to miss": {
+        "word": [
+            "missen"
+        ],
+        "example": "Ik mis mijn familie.",
+        "exampleTranslation": "I miss my family."
+    },
+    "law enforcement": {
+        "word": [
+            "politie"
+        ],
+        "example": "Bel de politie!",
+        "exampleTranslation": "Call the police!"
+    },
+    "to wish": {
+        "word": [
+            "wensen"
+        ],
+        "example": "Ik wens je veel succes.",
+        "exampleTranslation": "I wish you much success."
+    },
+    "factor": {
+        "word": [
+            "factor"
+        ],
+        "example": "Tijd is een belangrijke factor.",
+        "exampleTranslation": "Time is an important factor."
+    },
+    "get started": {
+        "word": [
+            "begin"
+        ],
+        "example": "Maak een begin met je huiswerk.",
+        "exampleTranslation": "Get started with your homework."
+    },
+    "good luck": {
+        "word": [
+            "succes"
+        ],
+        "example": "Succes met je examen!",
+        "exampleTranslation": "Good luck with your exam!"
+    },
+    "to cost": {
+        "word": [
+            "kosten"
+        ],
+        "example": "Hoeveel kost dit?",
+        "exampleTranslation": "How much does this cost?"
+    },
+    "nature": {
+        "word": [
+            "natuur"
+        ],
+        "example": "De natuur is mooi in de lente.",
+        "exampleTranslation": "Nature is beautiful in spring."
+    },
+    "hotel": {
+        "word": [
+            "hotel"
+        ],
+        "example": "We slapen in een hotel.",
+        "exampleTranslation": "We sleep in a hotel."
+    },
+    "study": {
+        "word": [
+            "studie"
+        ],
+        "context": "noun",
+        "example": "Mijn studie duurt vier jaar.",
+        "exampleTranslation": "My study takes four years."
+    },
+    "friendly": {
+        "word": [
+            "vriendelijk"
+        ],
+        "example": "De buurman is erg vriendelijk.",
+        "exampleTranslation": "The neighbour is very friendly."
+    },
+    "aspect": {
+        "word": [
+            "aspect"
+        ],
+        "example": "Dit is een belangrijk aspect.",
+        "exampleTranslation": "This is an important aspect."
+    },
+    "figure": {
+        "word": [
+            "figuur"
+        ],
+        "example": "Hij is een bekende figuur.",
+        "exampleTranslation": "He is a well-known figure."
+    },
+    "to lack": {
+        "word": [
+            "ontbreken"
+        ],
+        "example": "Er ontbreekt een stuk.",
+        "exampleTranslation": "A piece is missing."
+    },
+    "national": {
+        "word": [
+            "nationaal"
+        ],
+        "example": "Het is een nationaal park.",
+        "exampleTranslation": "It is a national park."
+    },
+    "sick": {
+        "word": [
+            "ziek"
+        ],
+        "example": "Ik ben ziek vandaag.",
+        "exampleTranslation": "I am sick today."
+    },
+    "term": {
+        "word": [
+            "term"
+        ],
+        "example": "Wat betekent deze term?",
+        "exampleTranslation": "What does this term mean?"
+    },
+    "give": {
+        "word": [
+            "geef"
+        ],
+        "context": "imperative",
+        "example": "Geef me dat boek.",
+        "exampleTranslation": "Give me that book."
+    },
+    "to run": {
+        "word": [
+            "rennen"
+        ],
+        "example": "De kinderen rennen in het park.",
+        "exampleTranslation": "The children run in the park."
+    },
+    "English": {
+        "word": [
+            "Engels"
+        ],
+        "context": "language",
+        "example": "Spreek je Engels?",
+        "exampleTranslation": "Do you speak English?"
+    },
+    "effect": {
+        "word": [
+            "effect"
+        ],
+        "example": "Het medicijn heeft veel effect.",
+        "exampleTranslation": "The medicine has a lot of effect."
+    },
+    "plant": {
+        "word": [
+            "plant"
+        ],
+        "example": "De plant heeft water nodig.",
+        "exampleTranslation": "The plant needs water."
+    },
+    "product": {
+        "word": [
+            "product"
+        ],
+        "example": "Dit is een goed product.",
+        "exampleTranslation": "This is a good product."
+    },
+    "sleep": {
+        "word": [
+            "slaap"
+        ],
+        "context": "noun",
+        "example": "Ik heb slaap.",
+        "exampleTranslation": "I am sleepy."
+    },
+    "text": {
+        "word": [
+            "tekst"
+        ],
+        "example": "Lees de tekst hardop.",
+        "exampleTranslation": "Read the text aloud."
+    },
+    "knee": {
+        "word": [
+            "knie"
+        ],
+        "example": "Mijn knie doet pijn.",
+        "exampleTranslation": "My knee hurts."
+    },
+    "born": {
+        "word": [
+            "geboren"
+        ],
+        "example": "Ik ben in Amsterdam geboren.",
+        "exampleTranslation": "I was born in Amsterdam."
+    },
+    "phone": {
+        "word": [
+            "telefoon"
+        ],
+        "example": "Mijn telefoon is kapot.",
+        "exampleTranslation": "My phone is broken."
+    },
+    "individually": {
+        "word": [
+            "individueel"
+        ],
+        "example": "We werken individueel.",
+        "exampleTranslation": "We work individually."
+    },
+    "structure": {
+        "word": [
+            "structuur"
+        ],
+        "example": "De structuur is duidelijk.",
+        "exampleTranslation": "The structure is clear."
+    },
+    "train": {
+        "word": [
+            "trein"
+        ],
+        "example": "De trein vertrekt om acht uur.",
+        "exampleTranslation": "The train departs at eight o'clock."
+    },
+    "summer": {
+        "word": [
+            "zomer"
+        ],
+        "example": "De zomer is warm.",
+        "exampleTranslation": "The summer is warm."
+    },
+    "to win": {
+        "word": [
+            "winnen"
+        ],
+        "example": "Wij willen de wedstrijd winnen.",
+        "exampleTranslation": "We want to win the match."
+    },
+    "baby": {
+        "word": [
+            "baby"
+        ],
+        "example": "De baby slaapt.",
+        "exampleTranslation": "The baby is sleeping."
+    },
+    "international": {
+        "word": [
+            "internationaal"
+        ],
+        "example": "Het is een internationaal bedrijf.",
+        "exampleTranslation": "It is an international company."
+    },
+    "island": {
+        "word": [
+            "eiland"
+        ],
+        "example": "We gaan naar een eiland.",
+        "exampleTranslation": "We are going to an island."
+    },
+    "master": {
+        "word": [
+            "meester"
+        ],
+        "example": "De meester geeft les.",
+        "exampleTranslation": "The master teaches."
+    },
+    "quality": {
+        "word": [
+            "kwaliteit"
+        ],
+        "example": "De kwaliteit is hoog.",
+        "exampleTranslation": "The quality is high."
+    },
+    "to fill": {
+        "word": [
+            "vullen"
+        ],
+        "example": "Vul het glas met water.",
+        "exampleTranslation": "Fill the glass with water."
+    },
+    "individual": {
+        "word": [
+            "individu"
+        ],
+        "context": "noun",
+        "example": "Elk individu is uniek.",
+        "exampleTranslation": "Every individual is unique."
+    },
+    "to fulfill": {
+        "word": [
+            "vervullen"
+        ],
+        "example": "Ik wil mijn droom vervullen.",
+        "exampleTranslation": "I want to fulfill my dream."
+    },
+    "to place": {
+        "word": [
+            "plaatsen"
+        ],
+        "example": "Ik plaatst het boek op de tafel.",
+        "exampleTranslation": "I place the book on the table."
+    },
+    "to discuss": {
+        "word": [
+            "bespreken"
+        ],
+        "example": "We bespreken het plan morgen.",
+        "exampleTranslation": "We discuss the plan tomorrow."
+    },
+    "discussion": {
+        "word": [
+            "discussie"
+        ],
+        "example": "De discussie was lang.",
+        "exampleTranslation": "The discussion was long."
+    },
+    "cigarette": {
+        "word": [
+            "sigaret"
+        ],
+        "example": "Hij rookt een sigaret.",
+        "exampleTranslation": "He smokes a cigarette."
+    },
+    "fish": {
+        "word": [
+            "vis"
+        ],
+        "example": "Ik eet graag vis.",
+        "exampleTranslation": "I like to eat fish."
+    },
+    "absolutely": {
+        "word": [
+            "absoluut"
+        ],
+        "example": "Dat is absoluut waar.",
+        "exampleTranslation": "That is absolutely true."
+    },
+    "historical": {
+        "word": [
+            "historisch"
+        ],
+        "example": "Dit is een historisch gebouw.",
+        "exampleTranslation": "This is a historical building."
+    },
+    "number": {
+        "word": [
+            "nummer"
+        ],
+        "example": "Wat is je telefoonnummer?",
+        "exampleTranslation": "What is your phone number?"
+    },
+    "shadow": {
+        "word": [
+            "schaduw"
+        ],
+        "example": "Ik zit in de schaduw.",
+        "exampleTranslation": "I am sitting in the shadow."
+    },
+    "leadership": {
+        "word": [
+            "leiding"
+        ],
+        "example": "Hij heeft de leiding.",
+        "exampleTranslation": "He is in charge."
+    },
+    "cat": {
+        "word": [
+            "kat"
+        ],
+        "example": "De kat slaapt op de bank.",
+        "exampleTranslation": "The cat sleeps on the couch."
+    },
+    "university": {
+        "word": [
+            "universiteit"
+        ],
+        "example": "Ik studeer aan de universiteit.",
+        "exampleTranslation": "I study at the university."
+    },
+    "myself": {
+        "word": [
+            "mezelf"
+        ],
+        "example": "Ik stel mezelf voor.",
+        "exampleTranslation": "I introduce myself."
+    },
+    "phase": {
+        "word": [
+            "fase"
+        ],
+        "example": "Dit is de eerste fase.",
+        "exampleTranslation": "This is the first phase."
+    },
+    "technical": {
+        "word": [
+            "technisch"
+        ],
+        "example": "Het is een technisch probleem.",
+        "exampleTranslation": "It is a technical problem."
+    },
+    "positive": {
+        "word": [
+            "positief"
+        ],
+        "example": "Het resultaat is positief.",
+        "exampleTranslation": "The result is positive."
+    },
+    "program": {
+        "word": [
+            "programma"
+        ],
+        "example": "Het programma begint om acht uur.",
+        "exampleTranslation": "The program starts at eight o'clock."
+    },
+    "leader": {
+        "word": [
+            "leider"
+        ],
+        "example": "Hij is de leider van het team.",
+        "exampleTranslation": "He is the leader of the team."
+    },
+    "weapon": {
+        "word": [
+            "wapen"
+        ],
+        "example": "Een wapen is gevaarlijk.",
+        "exampleTranslation": "A weapon is dangerous."
+    },
+    "literature": {
+        "word": [
+            "literatuur"
+        ],
+        "example": "Ik lees graag Nederlandse literatuur.",
+        "exampleTranslation": "I like to read Dutch literature."
+    },
+    "bread": {
+        "word": [
+            "brood"
+        ],
+        "example": "Ik eet brood met kaas.",
+        "exampleTranslation": "I eat bread with cheese."
+    },
+    "medical": {
+        "word": [
+            "medisch"
+        ],
+        "example": "Hij heeft medische hulp nodig.",
+        "exampleTranslation": "He needs medical help."
+    },
+    "officer": {
+        "word": [
+            "officier"
+        ],
+        "example": "De officier geeft orders.",
+        "exampleTranslation": "The officer gives orders."
+    },
+    "river": {
+        "word": [
+            "rivier"
+        ],
+        "example": "De rivier stroomt naar de zee.",
+        "exampleTranslation": "The river flows to the sea."
+    },
+    "to dance": {
+        "word": [
+            "dansen"
+        ],
+        "example": "Wij dansen op muziek.",
+        "exampleTranslation": "We dance to music."
+    },
+    "interesting": {
+        "word": [
+            "interessant"
+        ],
+        "example": "Dit boek is heel interessant.",
+        "exampleTranslation": "This book is very interesting."
+    },
+    "market": {
+        "word": [
+            "markt"
+        ],
+        "example": "Ik ga naar de markt.",
+        "exampleTranslation": "I am going to the market."
+    },
+    "officially": {
+        "word": [
+            "officieel"
+        ],
+        "example": "Het is officieel bevestigd.",
+        "exampleTranslation": "It is officially confirmed."
+    },
+    "boss": {
+        "word": [
+            "baas"
+        ],
+        "example": "Mijn baas is streng.",
+        "exampleTranslation": "My boss is strict."
+    },
+    "shoe": {
+        "word": [
+            "schoen"
+        ],
+        "example": "Ik koop nieuwe schoenen.",
+        "exampleTranslation": "I buy new shoes."
+    },
+    "boat": {
+        "word": [
+            "boot"
+        ],
+        "example": "De boot vaart op het water.",
+        "exampleTranslation": "The boat sails on the water."
+    },
+    "floor": {
+        "word": [
+            "vloer"
+        ],
+        "example": "De vloer is schoon.",
+        "exampleTranslation": "The floor is clean."
+    },
+    "to dream": {
+        "word": [
+            "dromen"
+        ],
+        "example": "Ik droom elke nacht.",
+        "exampleTranslation": "I dream every night."
+    },
+    "winter": {
+        "word": [
+            "winter"
+        ],
+        "example": "De winter is koud in Nederland.",
+        "exampleTranslation": "The winter is cold in the Netherlands."
+    },
+    "moon": {
+        "word": [
+            "maan"
+        ],
+        "example": "De maan schijnt vanavond.",
+        "exampleTranslation": "The moon shines tonight."
+    },
+    "kilometers": {
+        "word": [
+            "kilometer"
+        ],
+        "example": "De stad is tien kilometer ver.",
+        "exampleTranslation": "The city is ten kilometers away."
+    },
+    "wish": {
+        "word": [
+            "wens"
+        ],
+        "context": "noun",
+        "example": "Ik heb een wens.",
+        "exampleTranslation": "I have a wish."
+    },
+    "million": {
+        "word": [
+            "miljoen"
+        ],
+        "example": "Er wonen een miljoen mensen in de stad.",
+        "exampleTranslation": "A million people live in the city."
+    },
+    "rich": {
+        "word": [
+            "rijk"
+        ],
+        "example": "Hij is erg rijk.",
+        "exampleTranslation": "He is very rich."
+    },
+    "beer": {
+        "word": [
+            "bier"
+        ],
+        "example": "Wil je een biertje?",
+        "exampleTranslation": "Do you want a beer?"
+    },
+    "colleague": {
+        "word": [
+            "collega"
+        ],
+        "example": "Mijn collega werkt hard.",
+        "exampleTranslation": "My colleague works hard."
+    },
+    "action": {
+        "word": [
+            "actie"
+        ],
+        "example": "We moeten actie ondernemen.",
+        "exampleTranslation": "We must take action."
+    },
+    "pleasure": {
+        "word": [
+            "plezier"
+        ],
+        "example": "Veel plezier op je feest!",
+        "exampleTranslation": "Have fun at your party!"
+    },
+    "psychology": {
+        "word": [
+            "psychologie"
+        ],
+        "example": "Zij studeert psychologie.",
+        "exampleTranslation": "She studies psychology."
+    },
+    "technique": {
+        "word": [
+            "techniek"
+        ],
+        "example": "De techniek verbetert snel.",
+        "exampleTranslation": "The technique improves quickly."
+    },
+    "to fight": {
+        "word": [
+            "vechten"
+        ],
+        "example": "De honden vechten om een bot.",
+        "exampleTranslation": "The dogs fight over a bone."
+    },
+    "grass": {
+        "word": [
+            "gras"
+        ],
+        "example": "Het gras is groen.",
+        "exampleTranslation": "The grass is green."
+    },
+    "path": {
+        "word": [
+            "pad"
+        ],
+        "example": "We lopen over het pad.",
+        "exampleTranslation": "We walk along the path."
+    },
+    "financial": {
+        "word": [
+            "financieel"
+        ],
+        "example": "Het is een financieel probleem.",
+        "exampleTranslation": "It is a financial problem."
+    },
+    "to influence": {
+        "word": [
+            "beïnvloeden"
+        ],
+        "example": "Het weer beïnvloedt mijn humeur.",
+        "exampleTranslation": "The weather influences my mood."
+    },
+    "active": {
+        "word": [
+            "actief"
+        ],
+        "example": "Zij is erg actief.",
+        "exampleTranslation": "She is very active."
+    },
+    "star": {
+        "word": [
+            "ster"
+        ],
+        "example": "De sterren schijnen 's nachts.",
+        "exampleTranslation": "The stars shine at night."
+    },
+    "machine": {
+        "word": [
+            "machine"
+        ],
+        "example": "De machine maakt veel lawaai.",
+        "exampleTranslation": "The machine makes a lot of noise."
+    },
+    "energy": {
+        "word": [
+            "energie"
+        ],
+        "example": "Ik heb geen energie meer.",
+        "exampleTranslation": "I have no more energy."
+    },
+    "golden": {
+        "word": [
+            "gouden"
+        ],
+        "example": "Zij draagt een gouden ring.",
+        "exampleTranslation": "She wears a golden ring."
+    },
+    "neck": {
+        "word": [
+            "nek"
+        ],
+        "example": "Mijn nek is stijf.",
+        "exampleTranslation": "My neck is stiff."
+    },
+    "to rest": {
+        "word": [
+            "rusten"
+        ],
+        "example": "Ik moet even rusten.",
+        "exampleTranslation": "I need to rest for a moment."
+    },
+    "author": {
+        "word": [
+            "auteur"
+        ],
+        "example": "De auteur schrijft een nieuw boek.",
+        "exampleTranslation": "The author writes a new book."
+    },
+    "per cent": {
+        "word": [
+            "procent"
+        ],
+        "example": "Vijftig procent is de helft.",
+        "exampleTranslation": "Fifty per cent is half."
+    },
+    "museum": {
+        "word": [
+            "museum"
+        ],
+        "example": "We bezoeken het museum.",
+        "exampleTranslation": "We visit the museum."
+    },
+    "to realize": {
+        "word": [
+            "realiseren"
+        ],
+        "example": "Ik realiseer me dat het laat is.",
+        "exampleTranslation": "I realize that it is late."
+    },
+    "cultural": {
+        "word": [
+            "cultureel"
+        ],
+        "example": "Het is een cultureel evenement.",
+        "exampleTranslation": "It is a cultural event."
+    },
+    "bus": {
+        "word": [
+            "bus"
+        ],
+        "example": "De bus komt over vijf minuten.",
+        "exampleTranslation": "The bus comes in five minutes."
+    },
+    "director": {
+        "word": [
+            "directeur"
+        ],
+        "example": "De directeur leidt de vergadering.",
+        "exampleTranslation": "The director leads the meeting."
+    },
+    "material": {
+        "word": [
+            "materiaal"
+        ],
+        "example": "Welk materiaal is dit?",
+        "exampleTranslation": "What material is this?"
+    },
+    "to produce": {
+        "word": [
+            "produceren"
+        ],
+        "example": "De fabriek produceert auto's.",
+        "exampleTranslation": "The factory produces cars."
+    },
+    "field": {
+        "word": [
+            "veld"
+        ],
+        "example": "De koeien staan in het veld.",
+        "exampleTranslation": "The cows stand in the field."
+    },
+    "guest": {
+        "word": [
+            "gast"
+        ],
+        "example": "De gast komt vanavond.",
+        "exampleTranslation": "The guest comes tonight."
+    },
+    "double": {
+        "word": [
+            "dubbel"
+        ],
+        "example": "Ik zie dubbel.",
+        "exampleTranslation": "I see double."
+    },
+    "sand": {
+        "word": [
+            "zand"
+        ],
+        "example": "Het strand heeft wit zand.",
+        "exampleTranslation": "The beach has white sand."
+    },
+    "centre": {
+        "word": [
+            "centrum"
+        ],
+        "example": "Ik woon in het centrum.",
+        "exampleTranslation": "I live in the centre."
+    },
+    "production": {
+        "word": [
+            "productie"
+        ],
+        "example": "De productie is gestopt.",
+        "exampleTranslation": "The production has stopped."
+    },
+    "west": {
+        "word": [
+            "westen"
+        ],
+        "example": "De zon gaat onder in het westen.",
+        "exampleTranslation": "The sun sets in the west."
+    },
+    "specific": {
+        "word": [
+            "specifiek"
+        ],
+        "example": "Heb je een specifieke vraag?",
+        "exampleTranslation": "Do you have a specific question?"
+    },
+    "cool": {
+        "word": [
+            "koel"
+        ],
+        "example": "Het water is koel.",
+        "exampleTranslation": "The water is cool."
+    },
+    "to wash": {
+        "word": [
+            "wassen"
+        ],
+        "example": "Ik was mijn kleren.",
+        "exampleTranslation": "I wash my clothes."
+    },
+    "client": {
+        "word": [
+            "klant"
+        ],
+        "example": "De klant is altijd koning.",
+        "exampleTranslation": "The client is always king."
+    },
+    "tongue": {
+        "word": [
+            "tong"
+        ],
+        "example": "Steek je tong uit.",
+        "exampleTranslation": "Stick out your tongue."
+    },
+    "argument": {
+        "word": [
+            "argument"
+        ],
+        "example": "Dat is een goed argument.",
+        "exampleTranslation": "That is a good argument."
+    },
+    "negative": {
+        "word": [
+            "negatief"
+        ],
+        "example": "Het antwoord is negatief.",
+        "exampleTranslation": "The answer is negative."
+    },
+    "cheese": {
+        "word": [
+            "kaas"
+        ],
+        "example": "Nederland is beroemd om kaas.",
+        "exampleTranslation": "The Netherlands is famous for cheese."
+    },
+    "title": {
+        "word": [
+            "titel"
+        ],
+        "example": "Wat is de titel van het boek?",
+        "exampleTranslation": "What is the title of the book?"
+    },
+    "vision": {
+        "word": [
+            "visie"
+        ],
+        "example": "Zij heeft een duidelijke visie.",
+        "exampleTranslation": "She has a clear vision."
+    },
+    "personality": {
+        "word": [
+            "persoonlijkheid"
+        ],
+        "example": "Hij heeft een sterke persoonlijkheid.",
+        "exampleTranslation": "He has a strong personality."
+    },
+    "coast": {
+        "word": [
+            "kust"
+        ],
+        "example": "We rijden langs de kust.",
+        "exampleTranslation": "We drive along the coast."
+    },
+    "to thank": {
+        "word": [
+            "danken"
+        ],
+        "example": "Ik dank je voor je hulp.",
+        "exampleTranslation": "I thank you for your help."
+    },
+    "radio": {
+        "word": [
+            "radio"
+        ],
+        "example": "Ik luister naar de radio.",
+        "exampleTranslation": "I listen to the radio."
+    },
+    "wide": {
+        "word": [
+            "wijd"
+        ],
+        "example": "De deur staat wijd open.",
+        "exampleTranslation": "The door is wide open."
+    },
+    "yourself": {
+        "word": [
+            "jezelf"
+        ],
+        "example": "Wees jezelf.",
+        "exampleTranslation": "Be yourself."
+    },
+    "to be interested": {
+        "word": [
+            "interesseren"
+        ],
+        "example": "Kunst interesseert mij.",
+        "exampleTranslation": "Art interests me."
+    },
+    "oil": {
+        "word": [
+            "olie"
+        ],
+        "example": "De olie is op.",
+        "exampleTranslation": "The oil is finished."
+    },
+    "tea": {
+        "word": [
+            "thee"
+        ],
+        "example": "Wil je een kopje thee?",
+        "exampleTranslation": "Do you want a cup of tea?"
+    },
+    "risk": {
+        "word": [
+            "risico"
+        ],
+        "example": "Er is een groot risico.",
+        "exampleTranslation": "There is a big risk."
+    },
+    "president": {
+        "word": [
+            "president"
+        ],
+        "example": "De president houdt een toespraak.",
+        "exampleTranslation": "The president gives a speech."
+    },
+    "green": {
+        "word": [
+            "groen"
+        ],
+        "example": "Het licht is groen.",
+        "exampleTranslation": "The light is green."
+    },
+    "hungry": {
+        "word": [
+            "honger"
+        ],
+        "example": "Ik heb honger.",
+        "exampleTranslation": "I am hungry."
+    },
+    "traditional": {
+        "word": [
+            "traditioneel"
+        ],
+        "example": "Dit is een traditioneel gerecht.",
+        "exampleTranslation": "This is a traditional dish."
+    },
+    "address": {
+        "word": [
+            "adres"
+        ],
+        "example": "Wat is je adres?",
+        "exampleTranslation": "What is your address?"
+    },
+    "experiment": {
+        "word": [
+            "experiment"
+        ],
+        "example": "Het experiment is geslaagd.",
+        "exampleTranslation": "The experiment was successful."
+    },
+    "fundamentally": {
+        "word": [
+            "fundamenteel"
+        ],
+        "example": "Dit is een fundamenteel probleem.",
+        "exampleTranslation": "This is a fundamental problem."
+    },
+    "advice": {
+        "word": [
+            "advies"
+        ],
+        "example": "Ik heb je advies nodig.",
+        "exampleTranslation": "I need your advice."
+    },
+    "to climb": {
+        "word": [
+            "klimmen"
+        ],
+        "example": "We klimmen de berg op.",
+        "exampleTranslation": "We climb the mountain."
+    },
+    "typical": {
+        "word": [
+            "typisch"
+        ],
+        "example": "Dat is typisch Nederlands.",
+        "exampleTranslation": "That is typically Dutch."
+    },
+    "style": {
+        "word": [
+            "stijl"
+        ],
+        "example": "Zij heeft een eigen stijl.",
+        "exampleTranslation": "She has her own style."
+    },
+    "top": {
+        "word": [
+            "top"
+        ],
+        "example": "We staan op de top van de berg.",
+        "exampleTranslation": "We stand on top of the mountain."
+    },
+    "tradition": {
+        "word": [
+            "traditie"
+        ],
+        "example": "Het is een oude traditie.",
+        "exampleTranslation": "It is an old tradition."
+    },
+    "hot": {
+        "word": [
+            "heet"
+        ],
+        "example": "De soep is heet.",
+        "exampleTranslation": "The soup is hot."
+    },
+    "psychological": {
+        "word": [
+            "psychologisch"
+        ],
+        "example": "Het is een psychologisch probleem.",
+        "exampleTranslation": "It is a psychological problem."
+    },
+    "computer": {
+        "word": [
+            "computer"
+        ],
+        "example": "Ik werk op mijn computer.",
+        "exampleTranslation": "I work on my computer."
+    },
+    "generation": {
+        "word": [
+            "generatie"
+        ],
+        "example": "De jonge generatie denkt anders.",
+        "exampleTranslation": "The young generation thinks differently."
+    },
+    "bottom": {
+        "word": [
+            "bodem"
+        ],
+        "example": "Het glas is leeg tot op de bodem.",
+        "exampleTranslation": "The glass is empty to the bottom."
+    },
+    "student": {
+        "word": [
+            "student"
+        ],
+        "example": "De student leert hard.",
+        "exampleTranslation": "The student studies hard."
+    },
+    "relatively": {
+        "word": [
+            "relatief"
+        ],
+        "example": "Het is relatief goedkoop.",
+        "exampleTranslation": "It is relatively cheap."
+    },
+    "category": {
+        "word": [
+            "categorie"
+        ],
+        "example": "In welke categorie valt dit?",
+        "exampleTranslation": "In which category does this fall?"
+    },
+    "calm": {
+        "word": [
+            "kalm"
+        ],
+        "example": "Blijf kalm.",
+        "exampleTranslation": "Stay calm."
+    },
+    "to end": {
+        "word": [
+            "eindigen"
+        ],
+        "example": "De film eindigt om tien uur.",
+        "exampleTranslation": "The movie ends at ten o'clock."
+    },
+    "goods": {
+        "word": [
+            "goederen"
+        ],
+        "example": "De goederen worden morgen geleverd.",
+        "exampleTranslation": "The goods will be delivered tomorrow."
+    },
+    "to formulate": {
+        "word": [
+            "formuleren"
+        ],
+        "example": "Kun je de vraag anders formuleren?",
+        "exampleTranslation": "Can you formulate the question differently?"
+    },
+    "instrument": {
+        "word": [
+            "instrument"
+        ],
+        "example": "Zij speelt een instrument.",
+        "exampleTranslation": "She plays an instrument."
+    },
+    "combination": {
+        "word": [
+            "combinatie"
+        ],
+        "example": "Dat is een goede combinatie.",
+        "exampleTranslation": "That is a good combination."
+    },
+    "to publish": {
+        "word": [
+            "publiceren"
+        ],
+        "example": "De schrijver publiceert een nieuw boek.",
+        "exampleTranslation": "The writer publishes a new book."
+    },
+    "landscape": {
+        "word": [
+            "landschap"
+        ],
+        "example": "Het Nederlandse landschap is vlak.",
+        "exampleTranslation": "The Dutch landscape is flat."
+    },
+    "warmth": {
+        "word": [
+            "warmte"
+        ],
+        "example": "Ik voel de warmte van de zon.",
+        "exampleTranslation": "I feel the warmth of the sun."
+    },
+    "television": {
+        "word": [
+            "televisie"
+        ],
+        "example": "We kijken televisie.",
+        "exampleTranslation": "We watch television."
+    },
+    "to organize": {
+        "word": [
+            "organiseren"
+        ],
+        "example": "Wij organiseren een feest.",
+        "exampleTranslation": "We organize a party."
+    },
+    "pattern": {
+        "word": [
+            "patroon"
+        ],
+        "example": "Ik zie een patroon.",
+        "exampleTranslation": "I see a pattern."
+    },
+    "agent": {
+        "word": [
+            "agent"
+        ],
+        "context": "police officer",
+        "example": "De agent helpt de mensen.",
+        "exampleTranslation": "The police officer helps the people."
+    },
+    "emotion": {
+        "word": [
+            "emotie"
+        ],
+        "example": "Hij toont geen emotie.",
+        "exampleTranslation": "He shows no emotion."
+    },
+    "organ": {
+        "word": [
+            "orgaan"
+        ],
+        "example": "Het hart is een belangrijk orgaan.",
+        "exampleTranslation": "The heart is an important organ."
+    },
+    "province": {
+        "word": [
+            "provincie"
+        ],
+        "example": "Nederland heeft twaalf provincies.",
+        "exampleTranslation": "The Netherlands has twelve provinces."
+    },
+    "detail": {
+        "word": [
+            "detail"
+        ],
+        "example": "Let op de details.",
+        "exampleTranslation": "Pay attention to the details."
+    },
+    "restaurant": {
+        "word": [
+            "restaurant"
+        ],
+        "example": "We eten in een restaurant.",
+        "exampleTranslation": "We eat at a restaurant."
+    },
+    "wild": {
+        "word": [
+            "wild"
+        ],
+        "example": "Er zijn wilde dieren in het bos.",
+        "exampleTranslation": "There are wild animals in the forest."
+    },
+    "painful": {
+        "word": [
+            "pijnlijk"
+        ],
+        "example": "Het is een pijnlijke ervaring.",
+        "exampleTranslation": "It is a painful experience."
+    },
+    "station": {
+        "word": [
+            "station"
+        ],
+        "example": "Ik wacht op het station.",
+        "exampleTranslation": "I wait at the station."
+    },
+    "classic": {
+        "word": [
+            "klassiek"
+        ],
+        "example": "Ik luister naar klassieke muziek.",
+        "exampleTranslation": "I listen to classic music."
+    },
+    "sector": {
+        "word": [
+            "sector"
+        ],
+        "example": "Hij werkt in de zorgsector.",
+        "exampleTranslation": "He works in the healthcare sector."
+    },
+    "endless": {
+        "word": [
+            "eindeloos"
+        ],
+        "example": "De weg lijkt eindeloos.",
+        "exampleTranslation": "The road seems endless."
+    },
+    "emotional": {
+        "word": [
+            "emotioneel"
+        ],
+        "example": "Het was een emotioneel moment.",
+        "exampleTranslation": "It was an emotional moment."
+    },
+    "to study": {
+        "word": [
+            "studeren"
+        ],
+        "example": "Ik studeer aan de universiteit.",
+        "exampleTranslation": "I study at the university."
+    },
+    "symbol": {
+        "word": [
+            "symbool"
+        ],
+        "example": "De tulp is een symbool van Nederland.",
+        "exampleTranslation": "The tulip is a symbol of the Netherlands."
+    },
+    "lieutenant": {
+        "word": [
+            "luitenant"
+        ],
+        "example": "De luitenant leidt de soldaten.",
+        "exampleTranslation": "The lieutenant leads the soldiers."
+    },
+    "to pass": {
+        "word": [
+            "passeren"
+        ],
+        "example": "We passeren de grens.",
+        "exampleTranslation": "We pass the border."
+    },
+    "motive": {
+        "word": [
+            "motief"
+        ],
+        "example": "Wat is het motief?",
+        "exampleTranslation": "What is the motive?"
+    },
+    "factory": {
+        "word": [
+            "fabriek"
+        ],
+        "example": "De fabriek is groot.",
+        "exampleTranslation": "The factory is large."
+    },
+    "list": {
+        "word": [
+            "lijst"
+        ],
+        "example": "Ik maak een lijst.",
+        "exampleTranslation": "I make a list."
+    },
+    "serious": {
+        "word": [
+            "serieus"
+        ],
+        "example": "Ik ben serieus.",
+        "exampleTranslation": "I am serious."
+    },
+    "logical": {
+        "word": [
+            "logisch"
+        ],
+        "example": "Dat is logisch.",
+        "exampleTranslation": "That is logical."
+    },
+    "mom": {
+        "word": [
+            "mama"
+        ],
+        "example": "Mama is thuis.",
+        "exampleTranslation": "Mom is home."
+    },
+    "to flee": {
+        "word": [
+            "vluchten"
+        ],
+        "example": "De mensen vluchten voor het gevaar.",
+        "exampleTranslation": "The people flee from the danger."
+    },
+    "north": {
+        "word": [
+            "noorden"
+        ],
+        "example": "Amsterdam ligt in het noorden.",
+        "exampleTranslation": "Amsterdam is in the north."
+    },
+    "to bite": {
+        "word": [
+            "bijten"
+        ],
+        "example": "De hond bijt niet.",
+        "exampleTranslation": "The dog does not bite."
+    },
+    "formation": {
+        "word": [
+            "vorming"
+        ],
+        "example": "De vorming van het team duurt lang.",
+        "exampleTranslation": "The formation of the team takes long."
+    },
+    "cafe": {
+        "word": [
+            "café"
+        ],
+        "example": "We drinken koffie in het café.",
+        "exampleTranslation": "We drink coffee at the cafe."
+    },
+    "object": {
+        "word": [
+            "object"
+        ],
+        "example": "Wat is dat voor object?",
+        "exampleTranslation": "What kind of object is that?"
+    },
+    "Holland": {
+        "word": [
+            "Holland"
+        ],
+        "example": "Holland is een deel van Nederland.",
+        "exampleTranslation": "Holland is a part of the Netherlands."
+    },
+    "camp": {
+        "word": [
+            "kamp"
+        ],
+        "example": "De kinderen gaan naar een zomerkamp.",
+        "exampleTranslation": "The children go to a summer camp."
+    },
+    "thin": {
+        "word": [
+            "dun"
+        ],
+        "example": "Het papier is erg dun.",
+        "exampleTranslation": "The paper is very thin."
+    },
+    "ideal": {
+        "word": [
+            "ideaal"
+        ],
+        "example": "Dit is de ideale plek.",
+        "exampleTranslation": "This is the ideal place."
+    },
+    "June": {
+        "word": [
+            "juni"
+        ],
+        "example": "Mijn verjaardag is in juni.",
+        "exampleTranslation": "My birthday is in June."
+    },
+    "to accept": {
+        "word": [
+            "accepteren"
+        ],
+        "example": "Ik accepteer je uitnodiging.",
+        "exampleTranslation": "I accept your invitation."
+    },
+    "initiative": {
+        "word": [
+            "initiatief"
+        ],
+        "example": "Neem het initiatief.",
+        "exampleTranslation": "Take the initiative."
+    },
+    "bitter": {
+        "word": [
+            "bitter"
+        ],
+        "example": "De koffie is bitter.",
+        "exampleTranslation": "The coffee is bitter."
+    },
+    "to spread": {
+        "word": [
+            "verspreiden"
+        ],
+        "example": "Het nieuws verspreidt zich snel.",
+        "exampleTranslation": "The news spreads quickly."
+    },
+    "to forbid": {
+        "word": [
+            "verbieden"
+        ],
+        "example": "Roken is hier verboden.",
+        "exampleTranslation": "Smoking is forbidden here."
+    },
+    "consequence": {
+        "word": [
+            "consequentie"
+        ],
+        "example": "Elke keuze heeft een consequentie.",
+        "exampleTranslation": "Every choice has a consequence."
+    },
+    "October": {
+        "word": [
+            "oktober"
+        ],
+        "example": "Oktober is een mooie maand.",
+        "exampleTranslation": "October is a beautiful month."
+    },
+    "western": {
+        "word": [
+            "westers"
+        ],
+        "example": "Het is een westerse traditie.",
+        "exampleTranslation": "It is a western tradition."
+    },
+    "young man": {
+        "word": [
+            "jongeman"
+        ],
+        "example": "De jongeman rent snel.",
+        "exampleTranslation": "The young man runs fast."
+    },
+    "hat": {
+        "word": [
+            "hoed"
+        ],
+        "example": "Hij draagt een hoed.",
+        "exampleTranslation": "He wears a hat."
+    },
+    "to send": {
+        "word": [
+            "zenden"
+        ],
+        "example": "Ik zend je een brief.",
+        "exampleTranslation": "I send you a letter."
+    },
+    "theoretically": {
+        "word": [
+            "theoretisch"
+        ],
+        "example": "Theoretisch is het mogelijk.",
+        "exampleTranslation": "Theoretically it is possible."
+    },
+    "psychologist": {
+        "word": [
+            "psycholoog"
+        ],
+        "example": "De psycholoog luistert goed.",
+        "exampleTranslation": "The psychologist listens well."
+    },
+    "press": {
+        "word": [
+            "pers"
+        ],
+        "example": "De pers schrijft erover.",
+        "exampleTranslation": "The press writes about it."
+    },
+    "terrace": {
+        "word": [
+            "terras"
+        ],
+        "example": "We zitten op het terras.",
+        "exampleTranslation": "We sit on the terrace."
+    },
+    "dead": {
+        "word": [
+            "dood"
+        ],
+        "context": "adjective",
+        "example": "De boom is dood.",
+        "exampleTranslation": "The tree is dead."
+    },
+    "crisis": {
+        "word": [
+            "crisis"
+        ],
+        "example": "Het land is in een crisis.",
+        "exampleTranslation": "The country is in a crisis."
+    },
+    "pot": {
+        "word": [
+            "pot"
+        ],
+        "example": "De soep staat in de pot.",
+        "exampleTranslation": "The soup is in the pot."
+    },
+    "operation": {
+        "word": [
+            "operatie"
+        ],
+        "example": "De operatie is geslaagd.",
+        "exampleTranslation": "The operation was successful."
+    },
+    "partner": {
+        "word": [
+            "partner"
+        ],
+        "example": "Mijn partner werkt thuis.",
+        "exampleTranslation": "My partner works from home."
+    },
+    "sugar": {
+        "word": [
+            "suiker"
+        ],
+        "example": "Wil je suiker in je thee?",
+        "exampleTranslation": "Do you want sugar in your tea?"
+    },
+    "mean": {
+        "word": [
+            "gemeen"
+        ],
+        "context": "adjective / unkind",
+        "example": "Dat was gemeen.",
+        "exampleTranslation": "That was mean."
+    },
+    "plate": {
+        "word": [
+            "plaat"
+        ],
+        "example": "Zet het bord op de plaat.",
+        "exampleTranslation": "Put the plate on the surface."
+    },
+    "stiff": {
+        "word": [
+            "stijf"
+        ],
+        "example": "Mijn rug is stijf.",
+        "exampleTranslation": "My back is stiff."
+    },
+    "economy": {
+        "word": [
+            "economie"
+        ],
+        "example": "De economie groeit.",
+        "exampleTranslation": "The economy grows."
+    },
+    "brown": {
+        "word": [
+            "bruin"
+        ],
+        "example": "De hond is bruin.",
+        "exampleTranslation": "The dog is brown."
+    },
+    "snow": {
+        "word": [
+            "sneeuw"
+        ],
+        "example": "Er ligt sneeuw buiten.",
+        "exampleTranslation": "There is snow outside."
+    },
+    "cross": {
+        "word": [
+            "kruis"
+        ],
+        "example": "Er staat een kruis op de kerk.",
+        "exampleTranslation": "There is a cross on the church."
+    },
+    "automatically": {
+        "word": [
+            "automatisch"
+        ],
+        "example": "De deur gaat automatisch open.",
+        "exampleTranslation": "The door opens automatically."
+    },
+    "project": {
+        "word": [
+            "project"
+        ],
+        "example": "We werken aan een nieuw project.",
+        "exampleTranslation": "We are working on a new project."
+    },
+    "hut": {
+        "word": [
+            "hut"
+        ],
+        "example": "We slapen in een hut.",
+        "exampleTranslation": "We sleep in a hut."
+    },
+    "fruit": {
+        "word": [
+            "fruit"
+        ],
+        "example": "Ik eet elke dag fruit.",
+        "exampleTranslation": "I eat fruit every day."
+    },
+    "communication": {
+        "word": [
+            "communicatie"
+        ],
+        "example": "Goede communicatie is belangrijk.",
+        "exampleTranslation": "Good communication is important."
+    },
+    "dumb": {
+        "word": [
+            "dom"
+        ],
+        "example": "Dat was een domme fout.",
+        "exampleTranslation": "That was a dumb mistake."
+    }
 }
